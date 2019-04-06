@@ -10,6 +10,7 @@ import com.web.TBP.command.CustomerAllNoticeListCommand;
 @RequestMapping("/customer")
 public class CustomerController {
 
+	// 고객센터 페이지
 	@RequestMapping("/customerService")
 	public String customerService(String noticeType, Integer page, Model model) {
 		
