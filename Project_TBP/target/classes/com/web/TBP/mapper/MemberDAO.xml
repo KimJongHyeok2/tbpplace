@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.web.TBP.dao.MemberDAO">
+	<insert id="insertMember" parameterType="com.web.TBP.beans.MemberDTO">
+		INSERT ALL
+		INTO members(memberNo, memberId, memberPw, memberName, memberBirth, memberGender, memberPnum, memberEmail, memberMoney) VALUES(member_seq.nextval, #{memberId}, #{memberPw}, #{memberName}, #{memberBirth}, #{memberGender}, #{memberPnum}, #{memberEmail}, 50000000)
+		INTO SHOP(shopNo, memberNo, shopIntroduction, shopStatus, shopRegDate) VALUES(shop_seq.nextval, member_seq.currval, '이 곳에 자신의 상점을 소개해보세요!', 0, SYSDATE)
+		SELECT * FROM dual
+	</insert>
+	<select id="idOverlap" resultType="java.lang.String"> 
+		SELECT memberNo FROM members WHERE memberId = #{param1}
+	</select>
+	<select id="loginMember" resultType="com.web.TBP.beans.MemberDTO">
+		SELECT memberNo, memberId, memberName, memberStatus, memberBgrade, memberSgrade, memberMoney FROM members WHERE memberId = #{param1} AND memberPw = #{param2}
+	</select>
+	<select id="loginShop" resultType="com.web.TBP.beans.ShopDTO">
+		SELECT s.*, (SELECT memberSgrade FROM members WHERE memberNo = #{param1}) memberSgrade FROM shop s WHERE memberNo = #{param1}
+	</select>
+	<select id="checkInfo" resultType="Integer">
+		SELECT count(*) FROM members WHERE memberName = #{param1} AND memberPnum = #{param2}
+	</select>
+	<select id="checkInfo2" resultType="Integer">
+		SELECT count(*) FROM members WHERE memberId = #{param1} AND memberName = #{param2} AND memberPnum = #{param3}
+	</select>
+	<select id="findId" resultType="String">
+		SELECT memberId FROM members WHERE memberName = #{param1} AND memberPnum = #{param2}
+	</select>
+	<select id="findPw" resultType="String">
+		SELECT memberPw FROM members WHERE memberId = #{param1} AND memberName = #{param2} AND memberPnum = #{param3}
+	</select>
+</mapper>

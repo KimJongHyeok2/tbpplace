@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.web.TBP.dao.MainDAO">
+	<select id="selectCategorys" resultType="com.web.TBP.beans.CategoryDTO">
+<!-- 		SELECT * FROM categorys WHERE categoryParent IN (SELECT categoryId FROM categorys WHERE categoryDepth = 1) -->
+		SELECT * FROM categorys WHERE categoryDepth = 1
+	</select>
+	<select id="selectPopularProduct" resultType="com.web.TBP.beans.ProductDTO">
+		<![CDATA[
+			SELECT rownum rank, s.* FROM (SELECT p.*, (SELECT count(DISTINCT(productNo)) FROM cart WHERE productNo = p.productNo) cartCount FROM (SELECT * FROM product WHERE categoryId IN (SELECT categoryId FROM categorys WHERE categoryParent IN (SELECT categoryId FROM categorys WHERE categoryParent = #{param1}))) p WHERE rownum <= 10 ORDER BY (cartCount + productViewcnt) DESC) s
+		]]>
+	</select>
+	<select id="selectCategorys2" resultType="com.web.TBP.beans.CategoryDTO">
+		SELECT * FROM categorys WHERE categoryParent = #{param1}
+	</select>
+</mapper>

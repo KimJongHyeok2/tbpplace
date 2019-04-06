@@ -1,0 +1,129 @@
+@charset "UTF-8";
+* { font-family: "나눔고딕"; }
+.loginWrapper {
+}
+.loginWrapper .loginWrapperInner {
+	width: 1000px;
+	margin: auto;
+	padding: 70px 0;
+}
+.loginWrapper .loginWrapperInner table, th, td {
+	border-collapse: collapse;
+	margin: auto;
+	font-weight: bold;
+	text-align: center;
+	color: gray;
+	padding: 10px;
+	font-family: "나눔고딕";
+}
+.loginWrapper .loginWrapperInner table hr {
+	border: 1px solid #D5D5D5;
+}
+.loginWrapper .loginWrapperInner td input {
+	border: 1px solid #D5D5D5;
+	width: 298px;
+	height: 40px;
+	outline: 0;
+	z-index: -1;
+}
+.loginWrapper .loginWrapperInner td input:hover {
+	border: 1px solid #003399;
+}
+.loginWrapper .loginWrapperInner td input:focus {
+	border: 1px solid #003399;
+}
+.loginWrapper .loginWrapperInner td .loginBtn {
+	width: 100%;
+	height: 64px;
+	line-height: 64px;
+	color: white;
+	border: none;
+	background-color: #003399;
+	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+	cursor: pointer;
+	transition-property: opacity;
+	transition-duration: 1s;
+	font-weight: bold;
+	font-size: 15pt;
+}
+.loginWrapper .loginWrapperInner .loginBtn:hover {
+	opacity: 0.5;
+}
+.loginWrapper .loginWrapperInner td img {
+	cursor: pointer;
+	border: 1px solid transparent;
+	transition-property: border-color;
+	transition-duration: 0.5s;
+}
+.loginWrapper .loginWrapperInner td img:hover {
+	border: 1px solid #003399;
+}
+.loginWrapper .loginWrapperInner td div {
+	display: inline-block;
+	font-weight: normal;
+	font-size: 10pt;
+}
+.loginWrapper .loginWrapperInner td div:first-child {
+	border-right: 1px solid #D5D5D5;
+}
+.loginWrapper .loginWrapperInner td div.find{
+	padding: 0px 5px;
+	color: gray;
+	cursor: pointer;	
+}
+.loginWrapper .loginWrapperInner td span#t1 {
+	color: #003399;
+}
+.loginWrapper .loginWrapperInner td span#t2 {
+	color: black;
+}
+.loginWrapper .loginWrapperInner td span#error {
+	color: #F15F5F;
+}
+.loginCheckPanel {
+	display: none;
+	position: fixed;
+	z-index: 1;
+	width: 100%;
+	height: 100%;
+	left: 0;
+	top: 0;
+	overflow: auto;
+	background-color: rgba(0, 0, 0, 0.1);
+}
+.loginCheckPanel .loginCheck {
+	position: absolute;
+	width: 350px;
+	height: 200px;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	background-color: white;
+	border: 1px solid #003399;
+	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+.loginCheckPanel .loginCheck #loginText {
+	margin-top: 35px;
+	text-align: center;
+}
+.loginCheckPanel .loginCheck .loginCheckBtn {
+	width: 100px;
+	height: 50px;
+	line-height: 50px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 55px;
+	text-align: center;
+	color: white;
+	font-weight: bold;
+	font-size: 10pt;
+	border: none;
+	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+	background-color: #003399;
+	cursor: pointer; 
+	transition-property: opacity;
+	transition-duration: 1s;
+}
+.loginCheckPanel .loginCheck .loginCheckBtn:hover {
+	opacity: 0.5;
+}

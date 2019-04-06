@@ -1,0 +1,195 @@
+@charset "UTF-8";
+* { font-family: "나눔고딕"; }
+.searchWrapper {
+	margin: 15px 0;
+}
+.searchWrapper .searchWrapperInner {
+	width: 1000px;
+	margin: auto;
+}
+.searchWrapper .searchWrapperInner {
+}
+.searchWrapper .searchWrapperInner .innerTop {
+	margin-bottom: 20px;
+	padding: 10px;
+	font-size: 13pt;
+	background-color: white;
+}
+.searchWrapper .searchWrapperInner .innerTop span {
+	color: #003399;
+	font-weight: bold;
+}
+.searchWrapper .searchWrapperInner .innerCenter {
+	border: 1px solid #D5D5D5;
+	margin-bottom: 20px;
+}
+.searchWrapper .searchWrapperInner .innerCenter table {
+	width: 100%;
+	border-collapse: collapse;
+}
+.searchWrapper .searchWrapperInner .innerCenter table td#leftHead {
+	width: 200px;
+	padding: 10px;
+	color: white;
+	background-color: #4F5C74;
+}
+.searchWrapper .searchWrapperInner .innerCenter table td#rightContent {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: flex-start;
+}
+.searchWrapper .searchWrapperInner .innerCenter table td#rightContent .categoryBox2 {
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;	
+}
+.searchWrapper .searchWrapperInner .innerCenter table td#rightContent div {
+	width: 115px;
+	margin: 5px;
+	text-align: center;
+	border: 1px solid #D5D5D5;
+	cursor: pointer;
+}
+.searchWrapper .searchWrapperInner .innerCenter table td#rightContent div:hover {
+	border-color: #4F5C74;
+}
+.searchWrapper .searchWrapperInner .innerBottom {
+}
+.searchWrapper .searchWrapperInner .innerBottom ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+}
+.searchWrapper .searchWrapperInner .innerBottom ul li.searchDtoBox {
+	border-bottom: 1px solid #D5D5D5;	
+	padding: 10px;
+}
+.searchWrapper .searchWrapperInner .innerBottom ul li.searchDtoBox.first {
+	border-top: 1px solid #D5D5D5;
+}
+.searchWrapper .searchWrapperInner .innerBottom ul li.emptyDto {
+	padding: 300px 0;
+	font-size: 15pt;
+	text-align: center;
+}
+.searchWrapper .searchWrapperInner .innerBottom ul li.emptyDto span {
+	color: #003399;
+	font-weight: bold;
+}
+.searchWrapper .searchWrapperInner .innerBottom ul li .thumbBox {
+	display: inline-block;
+	width: 170px;
+	height: 150px;
+	border: 1px solid #D5D5D5;	
+	box-sizing: border-box;
+	transition-property: border-color;
+	transition-duration: 0.5s;
+	cursor: pointer;
+}
+.searchWrapper .searchWrapperInner .innerBottom ul li .thumbBox:hover {
+	border: 1px solid #003399;
+}
+.searchWrapper .searchWrapperInner .innerBottom ul li .thumbBox .thumb {
+	width: 100%;
+	height: 100%;
+}
+.searchWrapper .searchWrapperInner .innerBottom ul li .subjectBox {
+	display: inline-block;
+	width: 440px;
+	height: 150px;
+	padding: 5px;
+	box-sizing: border-box;
+	word-break: break-all;
+	word-wrap: break-word;
+	vertical-align: top;
+}
+.searchWrapper .searchWrapperInner .innerBottom ul li .subjectBox a {
+	text-decoration: none;
+	transition-property: color;
+	transition-duration: 0.5s;
+	color: black;
+}
+.searchWrapper .searchWrapperInner .innerBottom ul li .subjectBox a:hover {
+	color: #003399;
+}
+.searchWrapper .searchWrapperInner .innerBottom ul li .infoBox1 {
+	position: relative;
+	display: inline-block;
+	width: 170px;
+	height: 150px;
+	padding: 5px;
+	border-left: 1px solid #D5D5D5;
+	border-right: 1px solid #D5D5D5;	
+	box-sizing: border-box;
+	vertical-align: top;
+}
+.searchWrapper .searchWrapperInner .innerBottom ul li .infoBox1 .productPrice {
+	font-weight: bold;
+	color: #003399;
+}
+.searchWrapper .searchWrapperInner .innerBottom ul li .infoBox1 .subInfo {
+	position: absolute;
+	bottom: 0;
+	padding-bottom: 5px;
+}
+.searchWrapper .searchWrapperInner .innerBottom ul li .infoBox1 .subInfo span.salesWay {
+	font-size: 10pt;
+	color: gray;
+	border-right: 1px solid #D5D5D5;
+}
+.searchWrapper .searchWrapperInner .innerBottom ul li .infoBox1 .subInfo span.productRegDate {
+	font-size: 10pt;
+	padding-left: 5px;
+	color: gray;
+}
+.searchWrapper .searchWrapperInner .innerBottom ul li .infoBox2 {
+	display: inline-block;
+	width: 170px;
+	height: 150px;
+	padding: 5px;
+	box-sizing: border-box;
+	vertical-align: top;
+}
+.searchWrapper .searchWrapperInner .innerBottom ul li .infoBox2 a {
+	text-decoration: none;
+	transition-property: color;
+	transition-duration: 0.5s;
+	color: black;
+}
+.searchWrapper .searchWrapperInner .innerBottom ul li .infoBox2 a:hover {
+	color: #003399;
+}
+.searchWrapper .searchWrapperInner .pageNumberBox {
+	margin-top: 5px;
+	text-align: center;
+	font-size: 10pt;
+}
+.searchWrapper .searchWrapperInner .pageNumberBox div {
+	display: inline-block;;
+}
+.searchWrapper .searchWrapperInner .pageNumberBox .numberBtn {
+	width: 30px;
+	height: 20px;
+	line-height: 20px;
+	border: 1px solid #D5D5D5;
+	cursor: pointer;
+}
+.searchWrapper .searchWrapperInner .pageNumberBox .pageNumbers {
+	width: 20px;
+	height: 20px;
+	line-height: 20px;
+	border: 1px solid #D5D5D5;
+	cursor: pointer;
+}
+.searchWrapper .searchWrapperInner .pageNumberBox .pageNumbers:active {
+	background-color: #003399;
+	border: 1px solid #003399;
+	color: white;
+}
+.searchWrapper .searchWrapperInner .pageNumberBox .pageNumbers.active {
+	background-color: #003399;
+	border: 1px solid #003399;
+	color: white;
+	cursor: default;
+}

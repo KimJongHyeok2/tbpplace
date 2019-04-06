@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.web.TBP.dao.OrderDAO">
+	<select id="orderProduct" resultType="com.web.TBP.beans.ProductDTO">
+		SELECT * FROM product WHERE productNo = #{param1}
+<!-- 		SELECT * FROM product WHERE productNo IN 
+		<foreach collection="productNo" item="i" open="(" separator="," close=")" >
+			#{i}
+		</foreach> -->
+	</select>
+	<select id="myDelivery" resultType="com.web.TBP.beans.DeliveryDTO">
+		SELECT * FROM (SELECT rownum rnum, m.* FROM (SELECT * FROM myDelivery WHERE memberNo = #{param1} ORDER BY deliveryRegDate DESC) m ) WHERE rnum = 1
+	</select>
+	<insert id="orderInsert" parameterType="com.web.TBP.beans.OrderDTO">
+		INSERT ALL
+		INTO orders(orderNo, memberNo, productNo, orderName, orderSubject, productThumb, orderAddr, orderTel, orderStock, orderStatus, orderPrice, orderRegDate, orderReviewCheck) VALUES(order_seq.nextval, #{orderDto.memberNo}, #{orderDto.productNo}, #{orderDto.orderName, jdbcType=VARCHAR}, (SELECT productSubject FROM product WHERE productNo = #{orderDto.productNo}), (SELECT productThumb FROM product WHERE productNo = #{orderDto.productNo}), #{orderDto.orderAddr, jdbcType=VARCHAR}, #{orderDto.orderTel, jdbcType=VARCHAR}, #{orderDto.orderStock}, 1, (SELECT productPrice FROM product WHERE productNo = #{orderDto.productNo}) * #{orderDto.orderStock}, SYSDATE, 1)
+		INTO myDelivery(deliveryNo, memberNo, deliveryName, deliveryAddr, deliveryTel, deliveryRegDate) VALUES(myDelivery_seq.nextval, #{orderDto.memberNo}, #{orderDto.orderName, jdbcType=VARCHAR}, #{orderDto.orderAddr, jdbcType=VARCHAR}, #{orderDto.orderTel, jdbcType=VARCHAR}, SYSDATE)
+		SELECT * FROM dual
+	</insert>
+	<select id="checkMemberMoney" resultType="Integer">
+		SELECT memberMoney FROM members WHERE memberNo = #{param1}
+	</select>
+	<select id="checkProductStock" resultType="Integer">
+		SELECT productStock FROM product WHERE productNo = #{param1}
+	</select>
+	<select id="checkSalesWay" resultType="Integer">
+		SELECT salesWayId FROM product WHERE productNo = #{param1}
+	</select>
+	<select id="selectMyMoney" resultType="Integer">
+		SELECT memberMoney FROM members WHERE memberNo = #{param1}
+	</select>
+	<update id="productStockUpdate">
+		UPDATE product SET productStock = productStock - #{param1} WHERE productNo = #{param2}
+	</update>
+	<update id="memberMoneyUpdate">
+		UPDATE members SET memberMoney = memberMoney - #{param1} WHERE memberNo = #{param2}
+	</update>
+	<delete id="deleteCart">
+		DELETE FROM cart WHERE cartNo IN <foreach collection="cartNo" item="i" open="(" separator="," close=")">#{i}</foreach>
+	</delete>
+</mapper>

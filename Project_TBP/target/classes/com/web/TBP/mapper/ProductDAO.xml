@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.web.TBP.dao.ProductDAO">	
+	<insert id="insertProduct" parameterType="com.web.TBP.beans.ProductDTO" useGeneratedKeys="true" keyProperty="productNo" keyColumn="productNo">
+		INSERT INTO product VALUES(product_seq.nextval, #{memberNo}, #{productThumb}, #{productSubject}, #{productContext}, #{productAddr}, #{productStateId}, #{salesWayId}, #{productPrice}, 0, #{productStock}, SYSDATE, 0, 1, #{categoryId}, #{hasOption}, #{productStock})
+	</insert>
+	<update id="updaetProduct" parameterType="com.web.TBP.beans.ProductDTO">
+		UPDATE product SET productThumb = #{productThumb}, productSubject = #{productSubject}, productContext = #{productContext}, productAddr = #{productAddr}, productStateId = #{productStateId}, salesWayId = #{salesWayId}, productPrice = #{productPrice}, productStock = #{productStock}, beginningStock = beginningStock + #{productStock}, categoryId = #{categoryId}, <if test="productStock != 0">productStatus = 1</if> WHERE productNo = #{productNo}
+	</update>
+	<delete id="deleteProduct">
+		DELETE FROM product WHERE productNo = #{param1}
+	</delete>
+	<select id="orderCount" resultType="Integer">
+		SELECT count(*) FROM orders WHERE productNo = #{param1}
+	</select>
+	<delete id="deleteProductQuestion">
+		DELETE FROM productQuestion WHERE productNo = #{param1}
+	</delete>
+	<delete id="deleteProductQRecomment">
+		DELETE FROM questionRecomment WHERE productNo = #{param1}	
+	</delete>
+	<delete id="deleteOrder">
+		DELETE FROM orders WHERE productNo = #{param1}
+	</delete>
+	<delete id="deleteCart">
+		DELETE FROM cart WHERE productNo = #{param1}
+	</delete>
+	<delete id="deleteReview">
+		DELETE FROM orderReview WHERE orderNo IN (SELECT orderNo FROM orders WHERE productNo = #{param1})
+	</delete>
+	<select id="selectNewProduct" resultType="com.web.TBP.beans.ProductDTO">
+		<![CDATA[
+			SELECT * FROM (SELECT rownum rnum, p.* FROM (SELECT * FROM product ORDER BY productRegDate DESC) p ) WHERE rnum <= 5
+		]]>
+	</select>
+	<update id="cancleOrder">
+		UPDATE orders SET orderStatus = 4 WHERE orderNo = #{param1}
+	</update>
+	<insert id="insertImages">
+		INSERT INTO productImages VALUES(productImages_seq.nextval, #{param1}, #{param2}, #{param3})
+	</insert>
+	<delete id="deleteImages">
+		DELETE FROM productImages WHERE productNo = #{param1}
+	</delete>
+	<select id="selectProduct" resultType="com.web.TBP.beans.ProductDTO">
+		<![CDATA[	
+			SELECT * FROM (SELECT rownum rnum, p.*, (SELECT count(*) FROM cart WHERE productNo = p.productNo) cartCount, (SELECT count(*) FROM productQuestion WHERE productNo = p.productNo) questionCount FROM (SELECT * FROM product WHERE memberNo = #{param1} ORDER BY productRegDate DESC) p ) WHERE rnum >= #{param2} AND rnum < #{param2} + #{param3}
+		]]>
+	</select>
+	<select id="selectCartCount" resultType="Integer">
+		SELECT count(*) FROM cart WHERE productNo = #{param1}
+	</select>
+	<select id="selectProdcutCount" resultType="Integer">
+		SELECT count(*) FROM product WHERE memberNo = #{param1}
+	</select>
+	<select id="selectProductImages" resultType="com.web.TBP.beans.ProductImagesDTO">
+			SELECT * FROM productImages WHERE productNo IN
+		<foreach collection="productNoArray" item="productNo" open="(" separator="," close=")">
+			#{productNo}
+		</foreach>
+	</select>
+	<select id="depth" resultType="com.web.TBP.beans.CategoryDTO">
+		SELECT * FROM categorys WHERE categoryParent = (SELECT categoryParent FROM categorys WHERE categoryId = #{param1})
+	</select>
+	<select id="selectViewProduct" resultType="com.web.TBP.beans.ProductDTO">
+		SELECT p.*, (SELECT count(*) FROM cart WHERE productNo = #{param1}) cartCount FROM product p WHERE p.productNo = #{param1}
+	</select>
+	<select id="selectViewProductImages" resultType="com.web.TBP.beans.ProductImagesDTO">
+		SELECT * FROM productImages WHERE productNo = #{param1}
+	</select>
+	<select id="selectShop" resultType="com.web.TBP.beans.ShopDTO">
+		SELECT * FROM shop WHERE memberNo = #{param1}
+	</select>
+	<select id="selectShopProducts" resultType="com.web.TBP.beans.ProductDTO">
+		<![CDATA[
+			SELECT * FROM (SELECT rownum rnum, p.* FROM (SELECT * FROM product WHERE memberNo = #{param1} ORDER BY productViewcnt DESC) p ) WHERE rnum <= 5
+		]]>
+	</select>
+	<update id="productViewCount">
+		UPDATE product SET productViewcnt = productViewcnt + 1 WHERE productNo = #{param1}
+	</update>
+	<select id="selectReview" resultType="com.web.TBP.beans.OrderReviewDTO">
+		<![CDATA[
+			SELECT * FROM (SELECT rownum rnum, r.*, (SELECT shopNo FROM shop WHERE memberNo = r.memberNo) shopNo, (SELECT shopName FROM shop WHERE memberNo = r.memberNo) shopName, (SELECT productNo FROM product WHERE productNo = (SELECT productNo FROM orders WHERE orderNo = r.orderNo)) productNo, (SELECT memberBgrade FROM members WHERE memberNo = r.memberNo) memberBgrade FROM (SELECT * FROM orderReview WHERE orderNo IN (SELECT orderNo FROM orders WHERE productNo = #{param1}) ORDER BY reviewNo DESC) r ) WHERE rnum >= #{param2} AND rnum < #{param2} + #{param3}
+		]]>
+	</select>
+	<select id="reviewCount" resultType="Integer">
+		SELECT count(*) FROM orderReview WHERE orderNo IN (SELECT orderNo FROM orders WHERE productNo = #{param1})
+	</select>
+	<insert id="insertQuestion" parameterType="com.web.TBP.beans.ProductQuestionDTO">
+		INSERT INTO productQuestion VALUES(question_seq.nextval, #{productNo}, #{memberNo}, #{questionContent}, SYSDATE)
+	</insert>
+	<select id="selectQuestion" resultType="com.web.TBP.beans.ProductQuestionDTO">
+		<![CDATA[
+			SELECT * FROM (SELECT rownum rnum, q.*, (SELECT shopNo FROM shop WHERE memberNo = q.memberNo) shopNo, (SELECT shopName FROM shop WHERE memberNo = q.memberNo) shopName, (SELECT memberBgrade FROM members WHERE memberNo = q.memberNo) memberBgrade FROM (SELECT * FROM productQuestion WHERE productNo = #{param1} ORDER BY questionRegDate DESC) q) WHERE rnum >= #{param2} AND rnum < #{param2} + #{param3}
+		]]>
+	</select>
+	<select id="checkQRecomment" resultType="Integer">
+		SELECT count(*) FROM questionRecomment WHERE questionNo = #{param1}
+	</select>
+	<select id="questionCount" resultType="Integer">
+		SELECT count(*) FROM productQuestion WHERE productNo = #{param1}
+	</select>
+	<insert id="insertQRecomment" parameterType="com.web.TBP.beans.QuestionRecommentDTO">
+		INSERT INTO questionRecomment VALUES(qRecomment_seq.nextval, #{questionNo}, #{productNo}, #{memberNo}, #{qRecommentContent}, SYSDATE)
+	</insert>
+	<select id="selectQRecomment" resultType="com.web.TBP.beans.QuestionRecommentDTO">
+		SELECT * FROM questionRecomment WHERE productNo = #{param1} ORDER BY qRecommentRegDate DESC
+	</select>
+	<update id="updateQRecomment">
+		UPDATE questionRecomment SET qRecommentContent = #{param1} WHERE qRecommentNo = #{param2}
+	</update>
+	<delete id="deleteQRecomment">
+		DELETE FROM questionRecomment WHERE qRecommentNo = #{param1}
+	</delete>
+	<update id="updateQuestion">
+		UPDATE productQuestion SET questionContent = #{param1} WHERE questionNo = #{param2}
+	</update>
+	<delete id="deleteQuestion">
+		DELETE FROM productQuestion WHERE questionNo = #{param1}
+	</delete>
+	<delete id="deleteNotice">
+		DELETE FROM notices WHERE productNo = #{param1}
+	</delete>
+	<select id="selectMemberGrade" resultType="Integer">
+		SELECT memberSgrade FROM members WHERE memberNo = #{param1}
+	</select>
+	<select id="selectOrderStatus" resultType="Integer">
+		SELECT orderStatus FROM orders WHERE orderNo = #{param1}
+	</select>
+</mapper>

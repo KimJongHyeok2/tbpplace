@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.web.TBP.dao.MyPageDAO">
+ 	<select id="selectOrders" resultType="com.web.TBP.beans.PurchasesDTO">
+		<![CDATA[
+		SELECT * FROM (SELECT rownum rnum, o.*, p.productSubject, p.productContext, p.productStateId, p.salesWayId FROM (SELECT * FROM orders ORDER BY orderNo DESC) o, (SELECT * FROM product) p WHERE o.productNo = p.productNo AND orderRegDate BETWEEN SYSDATE-#{param1} AND SYSDATE AND o.memberNo = #{param2}) WHERE rnum >= #{param3} AND rnum < #{param3} + #{param4}
+		]]>
+	</select>
+<!-- 		<![CDATA[
+		SELECT * FROM (SELECT rownum rnum, o.*, p.productSubject, p.productContext, p.productStateId, p.salesWayId FROM (SELECT * FROM orders) o, (SELECT * FROM product) p WHERE o.productNo = p.productNo AND o.orderRegDate BETWEEN SYSDATE-#{param1} AND SYSDATE AND o.memberNo = #{param2} ORDER BY o.orderNo DESC) WHERE rnum >= #{param3} AND rnum < #{param3} + #{param4}
+		]]>
+	</select> -->
+	<select id="ordersAllCount" resultType="Integer">
+		SELECT count(orderNo) FROM orders WHERE memberNo = #{param1} AND orderRegDate BETWEEN SYSDATE-#{param2} AND SYSDATE
+	</select>
+<!-- 	<select id="selectOrders" resultType="com.web.TBP.beans.PurchasesDTO">
+		SELECT o.*, p.productSubject, p.productContext, p.productStateId, p.salesWayId FROM orders o, product p WHERE o.productNo = p.productNo AND orderRegDate BETWEEN SYSDATE-#{param1} AND SYSDATE AND o.memberNo = #{param2} ORDER BY o.orderRegDate DESC
+	</select> -->
+	<select id="selectOrderInfo" resultType="com.web.TBP.beans.PurchasesInfoDTO">
+		SELECT p.productAddr, s.shopNo, s.shopName, m.memberPnum FROM product p, orders o, shop s, members m WHERE p.productNo = #{param1} AND rownum = 1 AND s.shopNo = p.memberNo AND m.memberNo = p.memberNo
+	</select>
+	<select id="selectSalesDetail" resultType="com.web.TBP.beans.SalesDetailDTO">
+		<![CDATA[
+		SELECT * FROM (SELECT rownum rnum, o.*, p.productSubject, p.productContext, p.productStateId, p.salesWayId, p.productAddr, m.memberName, m.memberPnum FROM (SELECT * FROM orders ORDER BY orderNo DESC) o, (SELECT * FROM product) p, (SELECT * FROM members) m WHERE p.productNo IN (SELECT productNo FROM product WHERE memberNo = #{param1}) AND o.productNo = p.productNo AND o.memberNo = m.memberNo) WHERE rnum >= #{param2} AND rnum < #{param2} + #{param3}
+		]]>
+	</select>
+	<select id="salesAllCount" resultType="Integer">
+		SELECT count(*) FROM orders WHERE productNo IN (SELECT productNo FROM product WHERE memberNo = #{param1})
+	</select>
+	<update id="orderStatusUpdate">
+		UPDATE orders SET orderStatus = #{param1} WHERE orderNo = #{param2}
+	</update>
+	<update id="purchasesDecision">
+		UPDATE members SET memberMoney = memberMoney + (SELECT s.orderPrice FROM orders o, orders s WHERE o.orderNo = s.orderNo AND o.orderNo = #{param1}) WHERE memberNo = (SELECT * FROM (SELECT memberNo FROM product WHERE productNo = (SELECT s.productNo FROM orders o, orders s WHERE o.orderNo = s.orderNo AND o.orderNo = #{param1})))
+	</update>
+	<select id="selectProductStock" resultType="Integer">
+		SELECT productStock FROM product WHERE productNo = (SELECT productNo FROM orders WHERE orderNo = #{param1})
+	</select>
+	<update id="updateProductStatus">
+		UPDATE product SET productStatus = #{param1} WHERE productNo = (SELECT productNo FROM orders WHERE orderNo = #{param2})
+	</update>
+	<select id="selectBeginningStock" resultType="Integer">
+		SELECT beginningStock FROM product WHERE productNo = (SELECT productNo FROM orders WHERE orderNo = #{param1})
+	</select>
+	<select id="selectOrederCompleteCount" resultType="Integer">
+		SELECT sum(orderStock) FROM orders WHERE productNo = (SELECT productNo FROM orders WHERE orderNo = #{param1}) AND orderStatus = 2
+	</select>
+	<select id="selectMemberMoney" resultType="Integer">
+		SELECT memberMoney FROM members WHERE memberNo = #{param1}
+	</select>
+	<insert id="insertReview">
+		INSERT INTO orderReview VALUES(review_seq.nextval, #{param1}, #{param2}, #{param3}, #{param4}, SYSDATE)
+	</insert>
+	<update id="updateReviewCount">
+		UPDATE orders SET orderReviewCheck = 2 WHERE orderNo = #{param1}
+	</update>
+	<update id="updateProductScore">
+		UPDATE product SET productScore = productScore + #{param1} WHERE productNo = (SELECT productNo FROM orders WHERE orderNo = #{param2})
+	</update>
+	<update id="purchasesCancle">
+		UPDATE orders SET orderStatus = 3 WHERE orderNo = #{param1}
+	</update>
+	<select id="selectProduct" resultType="com.web.TBP.beans.ProductDTO">
+		SELECT * FROM product WHERE productNo = #{param1}
+	</select>
+	<select id="selectProductImages" resultType="com.web.TBP.beans.ProductImagesDTO">
+		SELECT * FROM productImages WHERE productNo = #{param1}
+	</select>
+	<select id="checkBGrade" resultType="Integer">
+		SELECT sum(orderPrice) FROM orders WHERE memberNo = (SELECT memberNo FROM orders WHERE orderNo = #{param1}) AND orderStatus = 2
+	</select>
+	<select id="checkSGrade" resultType="Integer">
+		SELECT sum(orderPrice) FROM orders WHERE productNo IN (SELECT productNo FROM product WHERE memberNo = (SELECT memberNo FROM product WHERE productNo = (SELECT productNo FROM orders WHERE orderNo = #{param1}))) AND orderStatus = 2
+	</select>
+	<select id="checkBGrade2" resultType="Integer">
+		SELECT sum(orderPrice) FROM orders WHERE memberNo = #{param1} AND orderStatus = 2
+	</select>
+	<select id="checkSGrade2" resultType="Integer">
+		SELECT sum(orderPrice) FROM orders WHERE productNo IN (SELECT productNo FROM product WHERE memberNo = #{param1}) AND orderStatus = 2
+	</select>
+	<update id="updateMemberBGrade">
+		UPDATE members SET memberBGrade = #{param1} WHERE memberNo = (SELECT memberNo FROM orders WHERE orderNo = #{param2})
+	</update>
+	<update id="updateMemberSGrade">
+		UPDATE members SET memberSGrade = #{param1} WHERE memberNo = (SELECT memberNo FROM product WHERE productNo = (SELECT productNo FROM orders WHERE orderNo = #{param2}))
+	</update>
+	<select id="selectOrderStatus" resultType="Integer">
+		SELECT orderStatus FROM orders WHERE orderNo = #{param1}
+	</select>
+</mapper>

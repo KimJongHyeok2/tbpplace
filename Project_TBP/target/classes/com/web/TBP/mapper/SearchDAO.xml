@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.web.TBP.dao.SearchDAO">
+	<select id="selectSearch" resultType="com.web.TBP.beans.SearchDTO">
+<!-- 		SELECT p.*, s.shopNo, shopName FROM product p, shop s WHERE s.memberNo = p.memberNo AND p.productSubject like '%'||#{param1}||'%' -->
+		<![CDATA[
+		SELECT * FROM (SELECT rownum rnum, p.*, s.shopNo, s.shopName FROM (SELECT * FROM product) p, (SELECT * FROM shop) s WHERE (p.memberNo = s.memberNo) AND (p.productSubject like UPPER('%'||#{param1}||'%') OR p.productSubject like LOWER('%'||#{param1}||'%')) ORDER BY p.productNo DESC) WHERE rnum >= #{param2} AND rnum < #{param2} + #{param3}
+		]]>
+	</select>
+	<select id="selectDepth3Search" resultType="com.web.TBP.beans.SearchDTO">
+		<![CDATA[
+			SELECT * FROM (SELECT rownum rnum, p.*, s.shopNo, s.shopName FROM (SELECT * FROM product) p, (SELECT * FROM shop) s WHERE (p.memberNo = s.memberNo) AND p.categoryId = #{param1} ORDER BY p.productNo DESC) WHERE rnum >= #{param2} AND rnum < #{param2} + #{param3}
+		]]>
+	</select>
+	<select id="selectDepth2Search" resultType="com.web.TBP.beans.SearchDTO">
+		<![CDATA[
+			SELECT * FROM (SELECT rownum rnum, p.*, (SELECT shopNo FROM shop WHERE memberNo = p.memberNo) shopNo, (SELECT shopName FROM shop WHERE memberNo = p.memberNo) shopName FROM (SELECT * FROM product) p WHERE p.categoryId IN (SELECT categoryId FROM categorys WHERE categoryParent = #{param1}) ORDER BY p.productNo DESC) WHERE rnum >= #{param2} AND rnum < #{param2} + #{param3}
+		]]>
+	</select>
+	<select id="selectDepth1Search" resultType="com.web.TBP.beans.SearchDTO">
+		<![CDATA[
+			SELECT * FROM (SELECT rownum rnum, p.*, (SELECT shopNo FROM shop WHERE memberNo = p.memberNo) shopNo, (SELECT shopName FROM shop WHERE memberNo = p.memberNo) shopName FROM (SELECT * FROM product) p WHERE p.categoryId IN (SELECT categoryId FROM categorys WHERE categoryParent IN (SELECT categoryId FROM categorys WHERE categoryParent = #{param1})) ORDER BY p.productNo DESC) WHERE rnum >= #{param2} AND rnum < #{param2} + #{param3}
+		]]>
+	</select>	
+	<select id="selectCategorys" resultType="Integer">
+		SELECT categoryId FROM (SELECT * FROM product WHERE productSubject like UPPER('%'||#{param1}||'%') OR productSubject like LOWER('%'||#{param1}||'%'))
+	</select>
+	<select id="searchAllCount" resultType="Integer">
+		SELECT count(*) FROM product WHERE (productSubject like UPPER('%'||#{param1}||'%') OR productSubject like LOWER('%'||#{param1}||'%'))
+	</select>
+	<select id="reSearchAllCount" resultType="Integer">
+		SELECT count(*) FROM (SELECT * FROM product WHERE productSubject like UPPER('%'||#{param1}||'%') OR productSubject like LOWER('%'||#{param1}||'%')) WHERE categoryId = #{param2}
+	</select>
+	<select id="categorySearchAllCount" resultType="Integer">
+		SELECT count(*) FROM product WHERE categoryId = #{param1}
+	</select>
+	<select id="categorySearchAllCount2" resultType="Integer">
+		SELECT count(*) FROM product WHERE categoryId IN (SELECT categoryId FROM categorys WHERE categoryParent = #{param1})		
+	</select>
+	<select id="categorySearchAllCount3" resultType="Integer">
+		SELECT count(*) FROM product WHERE categoryId IN (SELECT categoryId FROM categorys WHERE categoryParent IN (SELECT categoryId FROM categorys WHERE categoryParent = #{param1}))		
+	</select>
+	<select id="searchCategoryCount" resultType="com.web.TBP.beans.SearchCategoryDTO">
+<!-- 		SELECT count(*) FROM product WHERE productSubject like '%'||#{param1}||'%' AND categoryId = #{param2} -->
+		SELECT categoryName, categoryId, (SELECT count(*) FROM product WHERE (productSubject like UPPER('%'||#{param1}||'%') OR productSubject like LOWER('%'||#{param1}||'%')) AND categoryId = #{param2}) categoryCount FROM categorys WHERE categoryId = #{param2}
+	</select>
+	<select id="searchCategoryCount2" resultType="com.web.TBP.beans.SearchCategoryDTO">
+		SELECT categoryName, categoryId, (SELECT count(*) FROM product WHERE categoryId = #{param1}) categoryCount FROM categorys WHERE categoryId = #{param1}
+	</select>
+	<select id="searchCategoryCount3" resultType="com.web.TBP.beans.SearchCategoryDTO">
+		SELECT c.categoryName, c.categoryId, (SELECT count(*) FROM product WHERE categoryId = c.categoryId) categoryCount FROM categorys c WHERE c.categoryId IN (SELECT categoryId FROM categorys WHERE categoryParent = #{param1})
+	</select>
+	<select id="searchCategoryCount4" resultType="com.web.TBP.beans.SearchCategoryDTO">
+		SELECT c.categoryName, c.categoryId, (SELECT count(*) FROM product WHERE categoryId IN (SELECT categoryId FROM categorys WHERE categoryParent = c.categoryId)) categoryCount FROM categorys c WHERE c.categoryId IN (SELECT categoryId FROM categorys WHERE categoryId IN (SELECT categoryId FROM categorys WHERE categoryParent = #{param1}))
+	</select>
+	<select id="selectReSearch" resultType="com.web.TBP.beans.SearchDTO">
+		<![CDATA[
+			SELECT * FROM (SELECT rownum rnum, p.*, (SELECT shopNo FROM shop WHERE memberNo = p.memberNo) shopNo, (SELECT shopName FROM shop WHERE memberNo = p.memberNo) shopName FROM (SELECT * FROM product WHERE categoryId = #{param1}) p WHERE p.productSubject like UPPER('%'||#{param2}||'%') OR p.productSubject like LOWER('%'||#{param2}||'%') ORDER BY p.productNo DESC) WHERE rnum >= #{param3} AND rnum < #{param3} + #{param4}
+		]]>
+	</select>
+</mapper>

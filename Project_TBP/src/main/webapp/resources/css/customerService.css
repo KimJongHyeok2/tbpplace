@@ -1,0 +1,468 @@
+@charset "UTF-8";
+* { font-family: "나눔고딕" }
+.customerMainWrapper {
+	padding: 30px 0;
+}
+.customerMainWrapper .customerInner {
+	width: 1000px;
+	margin: auto;
+}
+.customerMainWrapper .customerInner .innerTop {
+	margin-bottom: 15px;
+	background-color: rgba(246, 246, 246, 0.4);
+}
+.customerMainWrapper .customerInner .innerTop .customerTitle {
+	padding: 10px;
+	font-size: 20pt;
+	border: 1px solid #D5D5D5;
+}
+.customerMainWrapper .customerInner .innerTop .customerTitle span.title1 {
+	color: #003399;
+}
+.customerMainWrapper .customerInner .innerTop .customerTitle span.title2 {
+	color: gray;
+}
+.customerMainWrapper .customerInner .innerBottom {
+	display: flex;
+}
+.customerMainWrapper .customerInner .innerBottom .innerLeft {
+	width: 200px;
+	margin-right: 15px;
+}
+.customerMainWrapper .customerInner .innerBottom .innerLeft ul {
+	list-style-type: none;
+	border: 1px solid #D5D5D5;
+	margin: 0;
+	padding: 0;
+}
+.customerMainWrapper .customerInner .innerBottom .innerLeft ul li {
+	padding: 10px 0;
+	padding-left: 10px;
+	border-left: 3px solid transparent;
+	box-sizing: border-box;
+	color: gray;
+	cursor: pointer;
+}
+.customerMainWrapper .customerInner .innerBottom .innerLeft ul li:hover {
+	border-left-color: #003399;
+	color: black;
+}
+.customerMainWrapper .customerInner .innerBottom .innerLeft ul li.active {
+	border-left-color: #003399;
+	color: black;
+}
+.customerMainWrapper .customerInner .innerBottom .innerRight {
+	flex-grow: 1;
+	padding: 10px;
+	padding-left: 10px;
+	border: 1px solid #D5D5D5;
+}
+.customerMainWrapper .customerInner .innerBottom .innerRight .rightContent {
+	display: none;
+}
+.customerMainWrapper .customerInner .innerBottom .innerRight .rightContent.on {
+	display: block;
+}
+.customerMainWrapper .customerInner .innerBottom .innerRight .rightContent .noticeTop {
+	margin-bottom: 5px;
+}
+.customerMainWrapper .customerInner .innerBottom .innerRight .rightContent .noticeTop .noticeTab {
+	display: inline-block;
+	width: 70px;
+	padding: 5px;
+	text-align: center;
+	border: 1px solid #D5D5D5;
+	border-right: none;
+	cursor: pointer;
+}
+.customerMainWrapper .customerInner .innerBottom .innerRight .rightContent .noticeTop .noticeTab.last {
+	border-right: 1px solid #D5D5D5;
+}
+.customerMainWrapper .customerInner .innerBottom .innerRight .rightContent .noticeTop .noticeTab.active {
+	background-color: #4F5C74;
+	color: white;
+}
+.customerMainWrapper .customerInner .innerBottom .innerRight .rightContent .noticeBottom ul#noticeList {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+}
+.customerMainWrapper .customerInner .innerBottom .innerRight .rightContent .noticeBottom ul#noticeList li {
+	border: 1px solid #D5D5D5;
+	border-bottom: none;
+	cursor: pointer;
+}
+.customerMainWrapper .customerInner .innerBottom .innerRight .rightContent .noticeBottom ul#noticeList li.emptyNotice {
+	padding: 50px 0;
+	text-align: center;
+	border-bottom: 1px solid #D5D5D5;
+	cursor: default;
+}
+.customerMainWrapper .customerInner .innerBottom .innerRight .rightContent .noticeBottom ul#noticeList li#pageNumberBox {
+	margin-top: 5px;
+	cursor: default;
+}
+.customerMainWrapper .customerInner .innerBottom .innerRight .rightContent .noticeBottom ul#noticeList li:hover:not(#pageNumberBox) {
+	background-color: rgba(246, 246, 246, 0.4);
+}
+.customerMainWrapper .customerInner .innerBottom .innerRight .rightContent .noticeBottom ul#noticeList li.last {
+	border-bottom: 1px solid #D5D5D5;
+}
+.customerMainWrapper .customerInner .innerBottom .innerRight .rightContent .noticeBottom ul#noticeList li#pageNumberBox {
+	border: none;
+	text-align: center;
+}
+.customerMainWrapper .customerInner .innerBottom .innerRight .rightContent .noticeBottom ul#noticeList li#pageNumberBox div {
+	display: inline-block;
+}
+.customerMainWrapper .customerInner .innerBottom .innerRight .rightContent .noticeBottom ul#noticeList li#pageNumberBox .pageFunc {
+	width: 40px;
+	border: 1px solid #D5D5D5;
+	cursor: pointer;
+}
+.customerMainWrapper .customerInner .innerBottom .innerRight .rightContent .noticeBottom ul#noticeList li#pageNumberBox .pageFunc:active {
+	background-color: #4F5C74;
+	border: 1px solid #4F5C74;
+	color: white;
+}
+.customerMainWrapper .customerInner .innerBottom .innerRight .rightContent .noticeBottom ul#noticeList li#pageNumberBox .pageNumbers {
+	width: 20px;
+	border: 1px solid #D5D5D5;
+	cursor: pointer;
+}
+.customerMainWrapper .customerInner .innerBottom .innerRight .rightContent .noticeBottom ul#noticeList li#pageNumberBox .pageNumbers.active {
+	background-color: #4F5C74;
+	border: 1px solid #4F5C74;
+	color: white;
+	cursor: default;
+}
+.customerMainWrapper .customerInner .innerBottom .innerRight .rightContent .noticeBottom ul#noticeList li .contentTop {
+	display: flex;
+	padding: 3px;
+}
+.customerMainWrapper .customerInner .innerBottom .innerRight .rightContent .noticeBottom ul#noticeList li .contentTop .type {
+	width: 50px;
+	text-align: center;
+	margin-right: 3px;
+	color: white;
+}
+.customerMainWrapper .customerInner .innerBottom .innerRight .rightContent .noticeBottom ul#noticeList li .contentTop .type.type-1 {
+	border: 1px solid #4584b6;
+	background-color: #4584b6;
+}
+.customerMainWrapper .customerInner .innerBottom .innerRight .rightContent .noticeBottom ul#noticeList li .contentTop .type.type-2 {
+	border: 1px solid #96bf48;
+	background-color: #96bf48;
+}
+.customerMainWrapper .customerInner .innerBottom .innerRight .rightContent .noticeBottom ul#noticeList li .contentTop .type.type-3 {
+	border: 1px solid #fd5c63;
+	background-color: #fd5c63;
+}
+.customerMainWrapper .customerInner .innerBottom .innerRight .rightContent .noticeBottom ul#noticeList li .contentTop .subject {
+	width: 300px;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
+	flex-grow: 1;
+}
+.customerMainWrapper .customerInner .innerBottom .innerRight .rightContent .noticeBottom ul#noticeList li .contentBottom {
+	padding: 3px;
+ 	color: gray;
+	font-size: 10pt;
+}
+.customerMainWrapper .customerInner .innerBottom .innerRight .rightContent .noticeBottom ul#noticeView {
+	display: none;
+	list-style-type: none;
+	margin: 0;
+	margin-top: 5px;
+	padding: 0;
+	overflow: hidden;
+}
+.customerMainWrapper .customerInner .innerBottom .innerRight .rightContent .noticeBottom ul#noticeView li#view {
+	border: 1px solid #D5D5D5;
+}
+.customerMainWrapper .customerInner .innerBottom .innerRight .rightContent .noticeBottom ul#noticeView li .viewTop {
+	display: flex;
+	padding: 3px;
+	border-bottom: 1px solid #D5D5D5;
+}
+.customerMainWrapper .customerInner .innerBottom .innerRight .rightContent .noticeBottom ul#noticeView li .viewTop .noticeType {
+}
+.customerMainWrapper .customerInner .innerBottom .innerRight .rightContent .noticeBottom ul#noticeView li .viewTop .noticeSubject {
+	width: 590px;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
+}
+.customerMainWrapper .customerInner .innerBottom .innerRight .rightContent .noticeBottom ul#noticeView li .viewTop .noticeRegDate {
+	flex-grow: 1;
+	text-align: center;
+	border: 1px solid #D5D5D5;
+	background-color: rgba(246, 246, 246, 0.4); 
+}
+.customerMainWrapper .customerInner .innerBottom .innerRight .rightContent .noticeBottom ul#noticeView li .viewTop .noticeType .type {
+	width: 50px;
+	text-align: center;
+	margin-right: 3px;
+	color: white;
+}
+.customerMainWrapper .customerInner .innerBottom .innerRight .rightContent .noticeBottom ul#noticeView li .viewTop .noticeType .type.type-1 {
+	border: 1px solid #4584b6;
+	background-color: #4584b6;
+}
+.customerMainWrapper .customerInner .innerBottom .innerRight .rightContent .noticeBottom ul#noticeView li .viewTop .noticeType .type.type-2 {
+	border: 1px solid #96bf48;
+	background-color: #96bf48;
+}
+.customerMainWrapper .customerInner .innerBottom .innerRight .rightContent .noticeBottom ul#noticeView li .viewTop .noticeType .type.type-3 {
+	border: 1px solid #fd5c63;
+	background-color: #fd5c63;
+}
+.customerMainWrapper .customerInner .innerBottom .innerRight .rightContent .noticeBottom ul#noticeView li .viewMiddle {
+	padding: 3px;
+	border-bottom: 1px solid #D5D5D5;
+}
+.customerMainWrapper .customerInner .innerBottom .innerRight .rightContent .noticeBottom ul#noticeView li .viewBottom {
+	padding: 3px;
+}
+.customerMainWrapper .customerInner .innerBottom .innerRight .rightContent .noticeBottom ul#noticeView li .viewBottom {
+	text-align: right;
+}
+.customerMainWrapper .customerInner .innerBottom .innerRight .rightContent .noticeBottom ul#noticeView li .viewBottom .listBtn {
+	display: inline-block;
+	width: 70px;
+	height: 30px;
+	line-height: 30px;
+	text-align: center;
+	border: 1px solid #D5D5D5;
+	transition-property: background-color, color;
+	transition-duration: 0.5s;
+	cursor: pointer;
+}
+.customerMainWrapper .customerInner .innerBottom .innerRight .rightContent .noticeBottom ul#noticeView li .viewBottom .listBtn:hover {
+	background-color: #4F5C74;
+	color: white;
+}
+.customerMainWrapper .customerInner .innerBottom .innerRight .rightContent#faq {
+	padding: 50px 0;
+	text-align: center;
+}
+.customerMainWrapper .customerInner .innerBottom .innerRight .rightContent .questionTop {
+	margin-bottom: 5px;
+}
+.customerMainWrapper .customerInner .innerBottom .innerRight .rightContent .questionTop .questionTab#questionList {
+	border-right: none;
+}
+.customerMainWrapper .customerInner .innerBottom .innerRight .rightContent .questionTop .questionTab {
+	display: inline-block;
+	padding: 5px;
+	border: 1px solid #D5D5D5;
+	cursor: pointer;
+}
+.customerMainWrapper .customerInner .innerBottom .innerRight .rightContent .questionTop .questionTab.active {
+	background-color: #4F5C74;
+	color: white;
+}
+.customerMainWrapper .customerInner .innerBottom .innerRight .rightContent .questionBottom {
+}
+.customerMainWrapper .customerInner .innerBottom .innerRight .rightContent .questionBottom .content {
+	display: none;
+}
+.customerMainWrapper .customerInner .innerBottom .innerRight .rightContent .questionBottom .content:after {
+	content: "";
+	display: block;
+	clear: both;
+}
+.customerMainWrapper .customerInner .innerBottom .innerRight .rightContent .questionBottom .content.on {
+	display: block;
+}
+.customerMainWrapper .customerInner .innerBottom .innerRight .rightContent .questionBottom .content .subjectBox {
+	display: flex;
+}
+.customerMainWrapper .customerInner .innerBottom .innerRight .rightContent .questionBottom .content .subjectBox .left {
+	line-height: 30px;
+	margin-right: 3px;
+	padding-right: 3px;
+	border-right: 1px solid #D5D5D5;
+}
+.customerMainWrapper .customerInner .innerBottom .innerRight .rightContent .questionBottom .content .subjectBox .right {
+	flex-grow: 1;
+}
+.customerMainWrapper .customerInner .innerBottom .innerRight .rightContent .questionBottom .content .subjectBox .right input {
+	width: 100%;
+	height: 30px;
+	border: 1px solid #D5D5D5;
+	box-sizing: border-box;
+	outline: 0;
+}
+.customerMainWrapper .customerInner .innerBottom .innerRight .rightContent .questionBottom .content .subjectBox .right input:hover {	
+	border: 1px solid #003399;
+}
+.customerMainWrapper .customerInner .innerBottom .innerRight .rightContent .questionBottom .content .subjectBox .right input:focus {
+	border: 1px solid #003399;
+}
+.customerMainWrapper .customerInner .innerBottom .innerRight .rightContent .questionBottom .content .contentBox {
+	display: block;
+	margin-top: 3px;
+	padding: 3px 0;
+	border-top: 1px solid #D5D5D5;
+	border-bottom: 1px solid #D5D5D5;
+}
+.customerMainWrapper .customerInner .innerBottom .innerRight .rightContent .questionBottom .content .contentBox textarea {
+	width: 100%;
+	height: 200px;
+	outline: 0;
+	border: 1px solid #D5D5D5;	
+	box-sizing: border-box;
+}
+.customerMainWrapper .customerInner .innerBottom .innerRight .rightContent .questionBottom .content .contentBox textarea:hover {
+	border: 1px solid #003399;
+}
+.customerMainWrapper .customerInner .innerBottom .innerRight .rightContent .questionBottom .content .contentBox textarea:focus {
+	border: 1px solid #003399;
+}
+.customerMainWrapper .customerInner .innerBottom .innerRight .rightContent .questionBottom .content #cqWrite {
+	float: right;
+	width: 70px;
+	height: 30px;
+	margin-top: 3px;
+	line-height: 30px;
+	text-align: center;
+	border: 1px solid #D5D5D5;
+	transition-property: background-color, color;
+	transition-duration: 0.5s;
+	cursor: pointer;
+}
+.customerMainWrapper .customerInner .innerBottom .innerRight .rightContent .questionBottom .content #cqWrite:hover {
+	background-color: #4F5C74;
+	color: white;
+}
+.customerMainWrapper .customerInner .innerBottom .innerRight .rightContent .questionBottom ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+.customerMainWrapper .customerInner .innerBottom .innerRight .rightContent .questionBottom ul li.emptyQuestion {
+	text-align: center;
+	padding: 50px 0;
+}
+.customerMainWrapper .customerInner .innerBottom .innerRight .rightContent .questionBottom ul li.question {
+	padding: 5px;
+	border: 1px solid #D5D5D5;
+	border-bottom: none;
+	cursor: pointer;
+}
+.customerMainWrapper .customerInner .innerBottom .innerRight .rightContent .questionBottom ul li.question ul.comment {
+	display: none;
+	position: relative;
+	/* background-color: rgba(178, 204, 255, 0.1); */
+	background-color: rgba(127, 143, 166, 0.1);
+	margin-top: 5px;
+}
+.customerMainWrapper .customerInner .innerBottom .innerRight .rightContent .questionBottom ul li.question ul.comment li {
+	padding: 5px;
+}
+.customerMainWrapper .customerInner .innerBottom .innerRight .rightContent .questionBottom ul li.question ul.comment li .title {
+	position: absolute;
+	right: 1px;
+	color: #003399;
+	font-weight: bold;
+}
+.customerMainWrapper .customerInner .innerBottom .innerRight .rightContent .questionBottom ul li.question ul.comment li .aContent {
+	padding-bottom: 5px;
+}
+.customerMainWrapper .customerInner .innerBottom .innerRight .rightContent .questionBottom ul li.question ul.comment li .aRegDate {
+	color: gray;
+	font-size: 10pt;
+}
+.customerMainWrapper .customerInner .innerBottom .innerRight .rightContent .questionBottom ul li.question:hover {
+	background-color: rgba(246, 246, 246, 0.4);
+}
+.customerMainWrapper .customerInner .innerBottom .innerRight .rightContent .questionBottom ul li.question:after {
+	content: "";
+	display: block;
+	clear: both;
+}
+.customerMainWrapper .customerInner .innerBottom .innerRight .rightContent .questionBottom ul li.question .left {
+	float: left;
+}
+.customerMainWrapper .customerInner .innerBottom .innerRight .rightContent .questionBottom ul li.question .right {
+	float: right;
+}
+.customerMainWrapper .customerInner .innerBottom .innerRight .rightContent .questionBottom ul li.question .regDate {
+	clear: both;
+	color: gray;
+	font-size: 10pt;
+}
+.customerMainWrapper .customerInner .innerBottom .innerRight .rightContent .questionBottom ul li.question.last {
+	border-bottom: 1px solid #D5D5D5;
+	clear: both;
+}
+.customerMainWrapper .customerInner .innerBottom .innerRight .rightContent .questionBottom #write {
+	padding: 5px;
+	border: 1px solid #D5D5D5;
+}
+.customerMainWrapper .customerInner .innerBottom .innerRight .rightContent .questionBottom #list.empty {
+	padding: 5px;
+	border: 1px solid #D5D5D5;
+}
+.customerMainWrapper .customerInner .innerBottom .innerRight .rightContent .moreQuestionView {
+	display: none;
+	margin-top: 3px;
+	padding: 3px;
+	text-align: center;
+	background-color: rgba(246, 246, 246, 0.4);
+	border: 1px solid #D5D5D5;
+	cursor: pointer;
+}
+#confirmPanel {
+	display: none;
+	position: fixed;
+	z-index: 1;
+	width: 100%;
+	height: 100%;
+	left: 0;
+	top: 0;
+	overflow: auto;
+	background-color: rgba(0, 0, 0, 0.1);
+	font-family: "나눔고딕";
+}
+#confirmPanel #confirmBox {
+	position: absolute;
+	width: 350px;
+	height: 200px;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	background-color: white;
+	border: 1px solid #003399;
+	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+#confirmPanel #confirmBox #confirmText {
+	font-size: 12pt;
+	text-align: center;
+	margin-top: 35px;
+}
+#confirmPanel #confirmBox #confirmBtn {
+	width: 100px;
+	height: 50px;
+	line-height: 50px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 55px;
+	text-align: center;
+	color: white;
+	font-weight: bold;
+	font-size: 10pt;
+	border: none;
+	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+	background-color: #003399;
+	cursor: pointer; 
+	transition-property: opacity;
+	transition-duration: 1s;
+}
+#confirmPanel #confirmBox #confirmBtn:hover {
+	opacity: 0.5;
+}

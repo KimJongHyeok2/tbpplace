@@ -1,0 +1,73 @@
+@charset "UTF-8";
+* { font-family: "나눔고딕"; }
+.orderTopWrapper {
+	border-bottom: 1px solid #D5D5D5;
+}
+.orderTopWrapper .orderTopInner {
+	width: 1000px;
+	padding: 20px 0;
+	margin: auto;
+}
+.orderTopWrapper .orderTopInner:after {
+	content: "";
+	display: block;
+	clear: both;
+}
+.orderTopWrapper .orderTopInner .orderTopInnerLeft {
+	float: left;
+	font-size: 25pt;
+	font-weight: 500;
+}
+.orderTopWrapper .orderTopInner .orderTopInnerRight {
+	float: right;
+	color: gray;
+}
+.orderTopWrapper .orderTopInner .orderTopInnerRight span.active {
+	color: #003399;
+	font-weight: 500;
+}
+.orderCenterWrapper {
+	margin: 200px 0;
+}
+.orderCenterWrapper .orderCenterInner {
+	width: 1000px;
+	margin: auto;
+}
+.orderCenterWrapper .orderCenterInner .orderExplain {
+	width: 500px;
+	text-align: center;
+	margin: auto;
+	margin-top: 30px;
+	margin-bottom: 30px;
+	font-size: 20pt;
+}
+.orderCenterWrapper .orderCenterInner .orderExplainImg {
+	width: 64px;
+	height: 64px;
+	margin: auto;
+}
+.orderCenterWrapper .orderCenterInner .orderExplainBtnBox {
+	margin-top: 30px;
+	margin-bottom: 30px;
+}
+.orderCenterWrapper .orderCenterInner .orderExplainBtnBox .orderExplainBtnBoxInner {
+	text-align: center;
+	margin: auto;
+}
+.orderCenterWrapper .orderCenterInner .orderExplainBtnBox .orderExplainBtnBoxInner .orderExplainBtn {
+	display: inline-block;
+	width: 120px;
+	height: 50px;
+	line-height: 50px;
+	text-align: center;
+	border: 1px solid #4F5C74;
+	background-color: #4F5C74;
+	color: white;
+	cursor: pointer;
+	font-weight: bold;
+	transition-property: opacity;
+	transition-duration: 1s;
+}
+.orderCenterWrapper .orderCenterInner .orderExplainBtnBox .orderExplainBtnBoxInner .orderExplainBtn:hover {
+	opacity: 0.5;
+}

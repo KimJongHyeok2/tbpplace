@@ -1,0 +1,80 @@
+@charset "UTF-8";
+* { font-family: "나눔고딕"; }
+body, html { height: 100%; background-color: rgba(246, 246, 246, 0.4); }
+.talkContentWrapper {
+	height: 100%;
+	box-sizing: border-box;
+}
+.talkContentWrapper .talkTitle {
+	text-align: center;
+	height: 50px;
+	line-height: 50px;
+	font-size: 15pt;
+	font-weight: bold;
+	background-color: #003399;
+	color: white;
+}
+.talkContentWrapper .talkContent {
+	padding: 10px;
+	box-sizing: border-box;
+}
+.talkContentWrapper .talkContent .contentInner {
+	height: 100%;
+	box-sizing: border-box;
+	border: 1px solid #D5D5D5;
+	background-color: white;
+	overflow: auto;
+}
+.talkContentWrapper .talkContent .contentInner ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+}
+.talkContentWrapper .talkContent .contentInner ul li:not(.emptyDto) {
+	border-bottom: 1px solid #D5D5D5;
+	cursor: pointer;
+}
+.talkContentWrapper .talkContent .contentInner ul li.emptyDto {
+	text-align: center;
+}
+.talkContentWrapper .talkContent .contentInner ul li:hover:not(.emptyDto) {
+	background-color: rgba(246, 246, 246, 0.4);
+}
+.talkContentWrapper .talkContent .contentInner ul li.last {
+	border-bottom: none;
+}
+.talkContentWrapper .talkContent .contentInner ul li div.list {
+	display: inline-block;
+	padding: 2.1px;
+	vertical-align: middle;
+}
+.talkContentWrapper .talkContent .contentInner ul li div.list .shopName {
+	margin: 5px 0;
+}
+.talkContentWrapper .talkContent .contentInner ul li div.list .lastContent {
+	width: 350px;
+	margin: 5px 0;
+	color: gray;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+}
+.talkContentWrapper .talkContent .contentInner ul li div.list.otherBox {
+	float: right;
+	text-align: center;
+	margin-top: 12px;
+	margin-right: 3px;
+}
+.talkContentWrapper .talkContent .contentInner ul li div.list.otherBox .regDate {
+	color: gray;
+}
+.talkContentWrapper .talkContent .contentInner ul li div.list.otherBox .notReadCount {
+	display: none;
+	width: 30px;
+	margin: auto;
+	color: white;
+	border-radius: 1em;
+	background-color: #003399;
+	border: 1px solid #003399;
+}

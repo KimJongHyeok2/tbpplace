@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.web.TBP.dao.ShopDAO">
+	<update id="shopVisitCount">
+		UPDATE shop SET shopVisitcnt = shopVisitcnt + 1 WHERE memberNo = #{param1}
+	</update>
+	<select id="shopOpeningDate" resultType="Integer">
+		SELECT trunc(SYSDATE-TO_DATE(TO_CHAR(shopRegDate, 'YYYY-MM-DD'))) FROM shop WHERE memberNo = #{param1}
+	</select>
+	<select id="shopSalesCount" resultType="Integer">
+		SELECT sum(orderStock) FROM orders WHERE productNo IN (SELECT productNo FROM product WHERE memberNo = #{param1}) AND orderStatus = 2
+		<!-- SELECT count(*) FROM orders o, product p WHERE o.productNo = p.productNo AND p.memberNo = #{param1} AND o.orderStatus = 2 -->
+	</select>
+	<select id="shopProductList" resultType="com.web.TBP.beans.ProductDTO">
+		<![CDATA[
+			SELECT * FROM (select rownum rnum, p.* FROM (SELECT * FROM product WHERE memberNo = #{param1} ORDER BY productRegDate DESC) p ) WHERE rnum >= #{param2} AND rnum < #{param2} + #{param3}
+		]]>
+	</select>
+	<select id="myProductCount" resultType="Integer">
+		SELECT count(*) FROM product WHERE memberNo = #{param1}
+	</select>
+	<update id="shopNameUpdate">
+		UPDATE shop SET shopName = #{param2} WHERE memberNo = #{param1}
+	</update>
+	<update id="shopIntroductionUpdate">
+		UPDATE shop SET shopIntroduction = #{param2} WHERE memberNo = #{param1}
+	</update>
+	<select id="selectAllReview" resultType="com.web.TBP.beans.OrderReviewDTO">
+		<![CDATA[
+			SELECT * FROM (SELECT rownum rnum, r.*, (SELECT shopNo FROM shop WHERE memberNo = r.memberNo) shopNo, (SELECT shopName FROM shop WHERE memberNo = r.memberNo) shopName, (SELECT productNo FROM product WHERE productNo = (SELECT productNo FROM orders WHERE orderNo = r.orderNo)) productNo, (SELECT productSubject FROM product WHERE productNo = (SELECT productNo FROM orders WHERE orderNo = r.orderNo)) productSubject, (SELECT memberBgrade FROM members WHERE memberNo = r.memberNo) memberBgrade FROM (SELECT * FROM orderReview WHERE orderNo IN (SELECT orderNo FROM orders WHERE productNo IN (SELECT productNo FROM product WHERE memberNo = #{param1})) ORDER BY reviewNo DESC) r ) WHERE rnum >= #{param2} AND rnum < #{param2} + #{param3}
+		]]>
+	</select>
+	<select id="selectReviewCount" resultType="Integer">
+		SELECT count(*) FROM orderReview WHERE orderNo IN (SELECT orderNo FROM orders WHERE productNo IN (SELECT productNo FROM product WHERE memberNo = #{param1}))
+	</select>
+	<select id="selectAllQuestion" resultType="com.web.TBP.beans.ProductQuestionDTO">
+		<![CDATA[
+			SELECT * FROM (SELECT rownum rnum, q.*, (SELECT shopNo FROM shop WHERE memberNo = q.memberNo) shopNo, (SELECT shopName FROM shop WHERE memberNo = q.memberNo) shopName, (SELECT productSubject FROM product WHERE productNo = q.productNo) productSubject, (SELECT memberBgrade FROM members WHERE memberNo = q.memberNo) memberBgrade FROM (SELECT * FROM productQuestion WHERE productNo IN (SELECT productNo FROM product WHERE memberNo = #{param1}) ORDER BY questionRegDate DESC) q) WHERE rnum >= #{param2} AND rnum < #{param2} + #{param3}
+		]]>
+	</select>
+	<select id="selectQuestionCount" resultType="Integer">
+		SELECT count(*) FROM productQuestion WHERE productNo IN (SELECT productNo FROM product WHERE memberNo = #{param1})
+	</select>
+	<select id="selectAllQRecomment" resultType="com.web.TBP.beans.QuestionRecommentDTO">
+		SELECT * FROM questionRecomment WHERE productNo IN (SELECT productNo FROM product WHERE memberNo = #{param1}) ORDER BY qRecommentRegDate DESC
+	</select>
+</mapper>

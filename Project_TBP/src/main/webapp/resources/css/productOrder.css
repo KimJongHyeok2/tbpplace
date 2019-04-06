@@ -1,0 +1,368 @@
+@charset "UTF-8";
+* { font-family: "나눔고딕"; }
+.orderTopWrapper {
+	border-bottom: 1px solid #D5D5D5;
+}
+.orderTopWrapper .orderTopInner {
+	width: 1000px;
+	padding: 20px 0;
+	margin: auto;
+}
+.orderTopWrapper .orderTopInner:after {
+	content: "";
+	display: block;
+	clear: both;
+}
+.orderTopWrapper .orderTopInner .orderTopInnerLeft {
+	float: left;
+	font-size: 25pt;
+	font-weight: 500;
+}
+.orderTopWrapper .orderTopInner .orderTopInnerRight {
+	float: right;
+	color: gray;
+}
+.orderTopWrapper .orderTopInner .orderTopInnerRight span.active {
+	color: #003399;
+	font-weight: 500;
+}
+.orderCenterWrapper {
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+.orderCenterWrapper .orderCenterInner {
+	width: 1000px;
+	margin: auto;
+}
+.orderCenterWrapper .orderCenterInner #orderInfoTitle {
+	font-size: 15pt; 
+	margin-bottom: 5px;
+}
+.orderCenterWrapper .orderCenterInner .centerInnerTop {
+}
+.orderCenterWrapper .orderCenterInner .centerInnerTop table#orderInfoTable {
+	width: 100%;
+	border-collapse: collapse;
+}
+.orderCenterWrapper .orderCenterInner .centerInnerTop table#orderInfoTable tr td#orderProductNoTD {
+	width: 75px;
+}
+.orderCenterWrapper .orderCenterInner .centerInnerTop table#orderInfoTable tr td#numberTD {
+	width: 75px;
+}
+.orderCenterWrapper .orderCenterInner .centerInnerTop table#orderInfoTable tr td#priceTD {
+	width: 120px;
+}
+.orderCenterWrapper .orderCenterInner .centerInnerTop table#orderInfoTable tr, td {
+	border: 1px solid #D5D5D5;
+}
+.orderCenterWrapper .orderCenterInner .centerInnerTop table#orderInfoTable tr td:not(#orderProductInfoContent) {
+	text-align: center;
+}
+.orderCenterWrapper .orderCenterInner .centerInnerTop table#orderInfoTable thead tr:first-child {
+	background-color: #4F5C74;
+	color: white;
+}
+.orderCenterWrapper .orderCenterInner .centerInnerTop table#orderInfoTable thead tr:first-child td {
+	padding: 10px 0;
+}
+.orderCenterWrapper .orderCenterInner .centerInnerTop table#orderInfoTable thead tr td#orderProductInfoTitle {
+	width: 600px;
+}
+.orderCenterWrapper .orderCenterInner .centerInnerTop table#orderInfoTable tbody tr td#orderProductInfoContent {
+	padding: 0 10px;
+}
+.orderCenterWrapper .orderCenterInner .centerInnerTop table#orderInfoTable tbody tr td#orderProductInfoContent .orderProductInfoBox {
+	display: flex;
+	margin: 15px;
+}
+.orderCenterWrapper .orderCenterInner .centerInnerTop table#orderInfoTable tbody tr td#orderProductInfoContent .orderProductInfoBox .orderProductThumbnail {
+	width: 100px;
+	height: 100px;
+	border: 1px solid #D5D5D5;
+}
+.orderCenterWrapper .orderCenterInner .centerInnerTop table#orderInfoTable tbody tr td#orderProductInfoContent .orderProductInfoBox .orderProductThumbnail .preview {
+	width: 100%;
+	height: 100%;
+}
+.orderCenterWrapper .orderCenterInner .centerInnerTop table#orderInfoTable tbody tr td#orderProductInfoContent .orderProductInfoBox .orderProductContents {
+	height: 100px;
+}
+.orderCenterWrapper .orderCenterInner .centerInnerTop table#orderInfoTable tbody tr td#orderProductInfoContent .orderProductInfoBox .orderProductContents #orderProductSubject {
+	width: 500px;
+	margin-top: 30px;
+	margin-left: 5px;
+}
+.orderCenterWrapper .orderCenterInner .centerInnerTop table#orderInfoTable tbody tr td#orderProductInfoContent .orderProductInfoBox .orderProductContents #orderProductSubject a {
+	text-decoration: none;
+	color: black;
+}
+.orderCenterWrapper .orderCenterInner .centerInnerTop table#orderInfoTable tbody tr td#orderProductInfoContent .orderProductInfoBox .orderProductContents #orderProductSubject a:hover {
+	text-decoration: underline;
+}
+.orderCenterWrapper .orderCenterInner .centerInnerTop table#orderInfoTable tbody tr td#orderProductInfoContent .orderProductInfoBox .orderProductContents .subContents {
+}
+.orderCenterWrapper .orderCenterInner .centerInnerTop table#orderInfoTable tbody tr td#orderProductInfoContent .orderProductInfoBox .orderProductContents .subContents span {
+	color: gray;
+	padding-left: 5px;
+}
+.orderCenterWrapper .orderCenterInner .centerInnerTop table#orderInfoTable tbody tr td#orderProductInfoContent .orderProductInfoBox .orderProductContents .subContents span#orderProductState {
+	padding-left: 0;
+	border-right: 1px solid #D5D5D5;
+}
+.orderCenterWrapper .orderCenterInner .centerInnerBottom {
+	display: flex;
+	margin-top: 30px;
+}
+.orderCenterWrapper .orderCenterInner .centerInnerBottom .innerBottomLeft { 
+	flex-grow: 1;
+}
+.orderCenterWrapper .orderCenterInner .centerInnerBottom .innerBottomLeft #bottomLeftTitle {
+	font-size: 15pt;
+	margin-bottom: 5px;
+}
+.orderCenterWrapper .orderCenterInner .centerInnerBottom .innerBottomLeft .bottomLeftContentTop {
+}
+.orderCenterWrapper .orderCenterInner .centerInnerBottom .innerBottomLeft .bottomLeftContentTop:after {
+	content: "";
+	display: block;
+	clear: both;
+}
+.orderCenterWrapper .orderCenterInner .centerInnerBottom .innerBottomLeft .bottomLeftContentTop .tabs {
+	float: left;
+	width: 150px;
+	height: 35px;
+	line-height: 35px;
+	text-align: center;
+	border: 1px solid #D5D5D5;
+	background-color: #EAEAEA;
+	color: gray;
+	cursor: pointer;
+}
+.orderCenterWrapper .orderCenterInner .centerInnerBottom .innerBottomLeft .bottomLeftContentTop .tabs.none {
+	cursor: default;
+}
+.orderCenterWrapper .orderCenterInner .centerInnerBottom .innerBottomLeft .bottomLeftContentTop .tabs.active {
+	background-color: #446699;
+	border: 1px solid #446699;
+	color: white;
+}
+.orderCenterWrapper .orderCenterInner .centerInnerBottom .innerBottomLeft .bottomLeftContentBottom {
+	border: 1px solid #D5D5D5;
+}
+.orderCenterWrapper .orderCenterInner .centerInnerBottom .innerBottomLeft .bottomLeftContentBottom input[type=radio] {
+	display: none;
+}
+.orderCenterWrapper .orderCenterInner .centerInnerBottom .innerBottomLeft .bottomLeftContentBottom .contentBox1 {
+	display: none;
+	height: 100px;
+	padding: 30px 10px;
+}
+.orderCenterWrapper .orderCenterInner .centerInnerBottom .innerBottomLeft .bottomLeftContentBottom .contentBox1.on {
+	display: block;
+}
+.orderCenterWrapper .orderCenterInner .centerInnerBottom .innerBottomLeft .bottomLeftContentBottom .contentBox1 .info {
+	margin: 10px 0;
+}
+.orderCenterWrapper .orderCenterInner .centerInnerBottom .innerBottomLeft .bottomLeftContentBottom .contentBox1 .info .infoHead {
+	color: gray;
+	border-right: 1px solid #D5D5D5;
+	padding-right: 5px;
+}
+.orderCenterWrapper .orderCenterInner .centerInnerBottom .innerBottomLeft .bottomLeftContentBottom .contentBox1 .info .infoHead#secondHead1 {
+	padding-right: 20px;
+}
+.orderCenterWrapper .orderCenterInner .centerInnerBottom .innerBottomLeft .bottomLeftContentBottom .contentBox1 .info .infoTd {
+	padding-left: 5px;
+}
+.orderCenterWrapper .orderCenterInner .centerInnerBottom .innerBottomLeft .bottomLeftContentBottom .contentBox2 {
+	display: none;
+	height: 100px;
+	padding: 30px 10px;
+}
+.orderCenterWrapper .orderCenterInner .centerInnerBottom .innerBottomLeft .bottomLeftContentBottom .contentBox2.on {
+	display: block;
+}
+.orderCenterWrapper .orderCenterInner .centerInnerBottom .innerBottomLeft .bottomLeftContentBottom .contentBox2 .info {
+	margin: 10px 0;
+}
+.orderCenterWrapper .orderCenterInner .centerInnerBottom .innerBottomLeft .bottomLeftContentBottom .contentBox2 .info input {
+	margin-left: 5px;
+	height: 17px;
+	outline: 0;
+	border: 1px solid #D5D5D5;
+}
+.orderCenterWrapper .orderCenterInner .centerInnerBottom .innerBottomLeft .bottomLeftContentBottom .contentBox2 .info input:focus {
+	border: 1px solid #446699;
+}
+.orderCenterWrapper .orderCenterInner .centerInnerBottom .innerBottomLeft .bottomLeftContentBottom .contentBox2 .info input#newdName {
+	width: 50px;
+}
+.orderCenterWrapper .orderCenterInner .centerInnerBottom .innerBottomLeft .bottomLeftContentBottom .contentBox2 .info input#newdAddr {
+	width: 300px;
+}
+.orderCenterWrapper .orderCenterInner .centerInnerBottom .innerBottomLeft .bottomLeftContentBottom .contentBox2 .info select {
+	margin-left: 1px;
+	height: 21.5px;
+	outline: 0;
+	border: 1px solid #D5D5D5;
+}
+.orderCenterWrapper .orderCenterInner .centerInnerBottom .innerBottomLeft .bottomLeftContentBottom .contentBox2 .info select:focus {
+	border: 1px solid #446699;
+}
+.orderCenterWrapper .orderCenterInner .centerInnerBottom .innerBottomLeft .bottomLeftContentBottom .contentBox2 .info input#newdTel1 {
+	width: 50px;
+}
+.orderCenterWrapper .orderCenterInner .centerInnerBottom .innerBottomLeft .bottomLeftContentBottom .contentBox2 .info input#newdTel2 {
+	width: 50px;
+}
+.orderCenterWrapper .orderCenterInner .centerInnerBottom .innerBottomLeft .bottomLeftContentBottom .contentBox2 .info .infoHead {
+	color: gray;
+	border-right: 1px solid #D5D5D5;
+	padding-right: 5px;
+}
+.orderCenterWrapper .orderCenterInner .centerInnerBottom .innerBottomLeft .bottomLeftContentBottom .contentBox2 .info .infoHead#secondHead2 {
+	padding-right: 20px;
+}
+.orderCenterWrapper .orderCenterInner .centerInnerBottom .innerBottomLeft .bottomLeftContentBottom .contentBox2 .info .addrSearchBtn {
+	display: inline-block;
+	width: 80px;
+	height: 20px;
+	margin-left: 5px;
+	text-align: center;
+	border: 1px solid #D5D5D5;
+	color: gray;
+	cursor: pointer;
+	transition-property: background-color, color;
+	transition-duration: 0.5s;
+}
+.orderCenterWrapper .orderCenterInner .centerInnerBottom .innerBottomLeft .bottomLeftContentBottom .contentBox2 .info .addrSearchBtn:hover {
+	background-color: #446699;
+	color: white;
+}
+.orderCenterWrapper .orderCenterInner .centerInnerBottom .innerBottomLeft .bottomLeftContentBottom .contentBox3 {
+	display: none;
+	border-top: 1px solid #D5D5D5;	
+	padding: 15px 10px;
+}
+.orderCenterWrapper .orderCenterInner .centerInnerBottom .innerBottomLeft .bottomLeftContentBottom .contentBox3 .salesWay1 {
+	background-color: #EAEAEA;
+	border: 1px solid #D5D5D5;
+}
+.orderCenterWrapper .orderCenterInner .centerInnerBottom .innerBottomLeft .bottomLeftContentBottom .contentBox3 .info {
+	margin: 10px 0;
+}
+.orderCenterWrapper .orderCenterInner .centerInnerBottom .innerBottomLeft .bottomLeftContentBottom .contentBox3 .info .infoTd {
+	padding-left: 5px;
+}
+.orderCenterWrapper .orderCenterInner .centerInnerBottom .innerBottomLeft .bottomLeftContentBottom .contentBox3 .info .infoHead {
+	color: gray;
+	border-right: 1px solid #D5D5D5;
+	padding-right: 5px;
+}
+.orderCenterWrapper .orderCenterInner .centerInnerBottom .innerBottomLeft .bottomLeftContentBottom .comment {
+	display: none;
+	padding: 0 10px;
+	padding-bottom: 15px;
+}
+.orderCenterWrapper .orderCenterInner .centerInnerBottom .innerBottomLeft .bottomLeftContentBottom .comment.on {
+	display: block;
+}
+.orderCenterWrapper .orderCenterInner .centerInnerBottom .innerBottomRight {
+	width: 350px;
+	margin-left: 10px;
+}
+.orderCenterWrapper .orderCenterInner .centerInnerBottom .innerBottomRight #bottomRightTitle {
+	font-size: 15pt;
+	margin-bottom: 5px;
+}
+.orderCenterWrapper .orderCenterInner .centerInnerBottom .innerBottomRight .bottomRightContent {
+	position: sticky;
+	top: 0;
+	border: 1px solid #D5D5D5;
+}
+.orderCenterWrapper .orderCenterInner .centerInnerBottom .innerBottomRight .bottomRightContent .contentTop {
+	padding: 5px;
+	border-bottom: 1px solid #D5D5D5;
+}
+.orderCenterWrapper .orderCenterInner .centerInnerBottom .innerBottomRight .bottomRightContent .contentTop .allPrice {
+	float: right;
+}
+.orderCenterWrapper .orderCenterInner .centerInnerBottom .innerBottomRight .bottomRightContent .contentBottom {
+	padding: 5px;
+}
+.orderCenterWrapper .orderCenterInner .centerInnerBottom .innerBottomRight .bottomRightContent .contentBottom .paymentPrice {
+	float: right;
+	color: #446699;
+	font-size: 13pt;
+	font-weight: bold;
+}
+.orderCenterWrapper .orderCenterInner .centerInnerBottom .innerBottomRight .bottomRightContent .paymentOkBtn {
+	width: 150px;
+	height: 100px;
+	line-height: 100px;
+	text-align: center;
+	margin: auto;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	background-color: #446699;
+	border: 1px solid #446699;
+	transition-property: opacity;
+	transition-duration: 1s;
+	color: white;
+	font-size: 15pt;
+	font-weight: bold;
+	cursor: pointer;
+}
+.orderCenterWrapper .orderCenterInner .centerInnerBottom .innerBottomRight .bottomRightContent .paymentOkBtn:hover {
+	opacity: 0.5;
+}
+#confirmPanel {
+	display: none;
+	position: fixed;
+	z-index: 1;
+	width: 100%;
+	height: 100%;
+	left: 0;
+	top: 0;
+	overflow: auto;
+	background-color: rgba(0, 0, 0, 0.1);
+	font-family: "나눔고딕";
+}
+#confirmPanel #confirmBox {
+	position: absolute;
+	width: 350px;
+	height: 200px;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	background-color: white;
+	border: 1px solid #003399;
+	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+#confirmPanel #confirmBox #confirmText {
+	font-size: 12pt;
+	text-align: center;
+	margin-top: 35px;
+}
+#confirmPanel #confirmBox #confirmBtn {
+	width: 100px;
+	height: 50px;
+	line-height: 50px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 55px;
+	text-align: center;
+	color: white;
+	font-weight: bold;
+	font-size: 10pt;
+	border: none;
+	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+	background-color: #003399;
+	cursor: pointer; 
+	transition-property: opacity;
+	transition-duration: 1s;
+}
+#confirmPanel #confirmBox #confirmBtn:hover {
+	opacity: 0.5;
+}

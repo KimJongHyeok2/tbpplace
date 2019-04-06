@@ -1,0 +1,675 @@
+@charset "UTF-8";
+* { font-family: "나눔고딕"; }
+.topWrapper {
+	display: flex;
+}
+.topWrapper .leftNav {
+	width: 300px;
+	min-width: 300px;
+}
+.topWrapper .leftNav img {
+	width: 100%;
+	box-sizing: border-box;
+}
+.topWrapper .rightNav {
+	flex-grow: 1;
+	min-width: 1550px;
+	border-bottom: 1px solid #7f8fa6;
+	background-color: #7f8fa6;
+	text-align: right;
+	color: white;
+}
+.topWrapper .rightNav div {
+	display: inline-block;
+	line-height: 41px;
+	text-align: center;
+	vertical-align: middle;
+}
+.topWrapper .rightNav .name {
+	position: relative;
+	width: 100px;
+}
+.topWrapper .rightNav .name span {
+	text-decoration: underline;
+	cursor: pointer;
+}
+.topWrapper .rightNav .name ul {
+	display: none;
+	position: absolute;
+	left: 23%;
+	list-style-type: none;
+	padding: 0;
+	margin: 0;
+	overflow: hidden;
+	background-color: white;
+	border: 1px solid #D5D5D5;
+	z-index: 1;
+}
+.topWrapper .rightNav .name ul li {
+	border-bottom: 1px solid #D5D5D5;
+	color: black;
+	cursor: pointer;
+	font-size: 10pt;
+}
+.topWrapper .rightNav .name ul li a {
+	text-decoration: none;
+	color: black;
+}
+.topWrapper .rightNav .name ul li:hover {
+	background-color: rgba(0, 0, 0, 0.1);
+}
+.topWrapper .rightNav .name ul li.last {
+	border-bottom: none;
+}
+.bottomWrapper {
+	display: flex;
+	border-left: none;
+}
+.bottomWrapper .leftNav {
+	width: 300px;
+	min-width: 300px;
+	border-right: 1px solid #D5D5D5;
+}
+.bottomWrapper .leftNav ul {
+	padding: 0;
+	margin: 0;
+	overflow: hidden;
+}
+.bottomWrapper .leftNav ul li.service {
+	text-align: center;
+	padding: 5px;
+	border: 1px solid transparent;
+	border-bottom: 1px solid #D5D5D5;
+	transition-property: border-color;
+	transition-duration: 0.5s;	
+	cursor: pointer;
+}
+.bottomWrapper .leftNav ul li.service.last {
+	border-bottom: 1px solid transparent;
+}
+.bottomWrapper .leftNav ul li.service:hover {
+	border: 1px solid #7f8fa6;
+}
+.bottomWrapper .leftNav ul.service-list {
+	display: none;
+	list-style-type: none;
+	background-color: #dfe6e9;
+}
+.bottomWrapper .leftNav ul.service-list li {
+	position: relative;
+	width: 100px;
+	margin: auto;
+	padding: 5px;
+	text-align: center;
+	cursor: pointer;
+}
+.bottomWrapper .leftNav ul.service-list li .list-drop {
+	display: none;
+	position: absolute;
+	top: -3px;
+	right: -83px;
+	border: 1px solid #D5D5D5;
+	background-color: white;
+}
+.bottomWrapper .leftNav ul.service-list li .list-drop div {
+	padding: 3px;
+	cursor: pointer;
+}
+.bottomWrapper .leftNav ul.service-list li .list-drop div:hover {
+	background-color: rgba(0, 0, 0, 0.1);
+}
+.bottomWrapper .rightContent {
+	flex-grow: 1;
+	min-width: 1000px;
+	border-bottom: 1px solid #D5D5D5;	
+	padding: 5px;
+}
+.bottomWrapper .rightContent .contentWrapper {
+	display: flex;
+	border: 1px solid;
+}
+.bottomWrapper .rightContent .contentWrapper .content1 {
+	flex-grow: 1;
+	padding: 5px;
+	box-sizing: border-box;
+}
+.bottomWrapper .rightContent .contentWrapper .content2 {
+	flex-grow: 1;
+	padding: 5px;
+}
+.bottomWrapper .rightContent table#questionList {
+	border-collapse: collapse;
+	text-align: center;
+}
+.bottomWrapper .rightContent table#questionList thead {
+	background-color: #dfe6e9;
+}
+.bottomWrapper .rightContent table#questionList tbody tr.cQuestion {
+	transition-property: background-color, color;
+	transition-duration: 0.5s;
+	color: black;
+}
+.bottomWrapper .rightContent table#questionList tbody tr.cQuestion.active {
+	background-color: rgba(246, 246, 246, 0.8);
+}
+.bottomWrapper .rightContent table#questionList tbody tr:hover:not(#pageNumber) {
+	background-color: rgba(246, 246, 246, 0.8);
+}
+.bottomWrapper .rightContent table#questionList tbody tr#pageNumber td {
+	border: none;
+}
+.bottomWrapper .rightContent table#questionList td {
+	padding: 5px;
+	border: 1px solid #D5D5D5;
+}
+.bottomWrapper .rightContent table#questionList td.emptyDto {
+	padding: 20px;
+}
+.bottomWrapper .rightContent table#questionList td.list-1 {
+	width: 70px;
+}
+.bottomWrapper .rightContent table#questionList td.list-2 {
+	width: 350px;
+}
+.bottomWrapper .rightContent table#questionList td.list-2.subject {
+	text-align: justify;
+	cursor: pointer;
+}
+.bottomWrapper .rightContent table#questionList td.list-3 {
+	width: 150px;
+}
+.bottomWrapper .rightContent table#questionList td.list-3 a {
+	text-decoration: none;
+	color: black;
+}
+.bottomWrapper .rightContent table#questionList td.list-5 {
+	width: 70px;
+}
+.bottomWrapper .rightContent table#questionList .pageNumberBox div {
+	display: inline-block;
+	width: 20px;
+	text-align: center;
+	cursor: pointer;
+}
+.bottomWrapper .rightContent table#questionList .pageNumberBox .pageFunc {
+	width: 40px;
+	border: 1px solid #D5D5D5;
+	cursor: pointer;
+}
+.bottomWrapper .rightContent table#questionList .pageNumberBox .pageFunc:hover {
+	background-color: #dfe6e9;
+	border: 1px solid #dfe6e9;
+}
+.bottomWrapper .rightContent table#questionList .pageNumberBox .pageFunc:active {
+	background-color: #dfe6e9;
+	border: 1px solid #dfe6e9;
+}
+.bottomWrapper .rightContent table#questionList .pageNumberBox .pageNumbers {
+	text-align: center;
+	border: 1px solid #D5D5D5;
+}
+.bottomWrapper .rightContent table#questionList .pageNumberBox .pageNumbers:hover {
+	background-color: #dfe6e9;
+	border: 1px solid #dfe6e9;
+}
+.bottomWrapper .rightContent table#questionList .pageNumberBox .pageNumbers:active {
+	background-color: #dfe6e9;
+	border: 1px solid #dfe6e9;
+}
+.bottomWrapper .rightContent table#questionList .pageNumberBox .pageNumbers.active {
+	background-color: #dfe6e9;
+	border: 1px solid #dfe6e9;
+	cursor: default;
+}
+.questionWrapper {
+	display: none;
+}
+.questionWrapper:after {
+	content: "";
+	display: block;
+	clear: both;
+}
+.questionWrapper .innerLeft {
+	float: left;
+	width: 844px;
+	border: 1px solid #D5D5D5;
+	margin-right: 5px;
+}
+.questionWrapper .innerLeft .inputBox {
+	height: 318px;
+}
+.questionWrapper .innerLeft .inputBox textarea {
+	width: 100%;
+	height: 100%;
+	outline: 0;
+	border: none;
+	border-bottom: 1px solid #D5D5D5;
+	transition-property: border-color;
+	transition-duration: 1s;
+	box-sizing: border-box;
+}
+.questionWrapper .innerLeft .inputBox textarea:hover {
+	border-bottom: 2px solid #7f8fa6;
+}
+.questionWrapper .innerLeft .inputBox textarea:focus {
+	border-bottom: 2px solid #7f8fa6;
+}
+.questionWrapper .innerLeft .funcBox {
+	padding: 5px;
+}
+.questionWrapper .innerLeft .funcBox div#writeOk {
+	width: 100px;
+	height: 30px;
+	line-height: 30px;
+	margin: auto;
+	text-align: center;
+	border: 1px solid #D5D5D5;
+	transition-property: background-color, color;
+	transition-duration: 0.5s;
+	cursor: pointer;
+}
+.questionWrapper .innerLeft .funcBox div#writeOk:hover {
+	background-color: #7f8fa6;
+	color: white;
+}
+.questionWrapper .innerRight {
+	float: left;
+	width: 844px;
+	border: 1px solid #D5D5D5;
+}
+.questionWrapper .innerRight .subject {
+	padding: 5px;
+	border-bottom: 1px solid #D5D5D5; 
+}
+.questionWrapper .innerRight .content {
+	height: 320px;
+	padding: 5px;
+	overflow: auto;
+}
+.noticeSubjectBox {
+	display: flex;
+	width: 1000px;
+	margin-bottom: 3px;
+	border: 1px solid #D5D5D5;
+}
+.noticeSubjectBox .left {
+	width: 80px;
+	padding: 3px;
+	text-align: center;
+	border-right: 1px solid #D5D5D5;
+}
+.noticeSubjectBox .right {
+	flex-grow: 1;
+}
+.noticeSubjectBox .right input {
+	width: 100%;
+	height: 100%;
+	border: 1px solid transparent;
+	outline: 0;
+	box-sizing: border-box;
+}
+.noticeSubjectBox .right input:hover {
+	border: 1px solid #7f8fa6;
+}
+.noticeSubjectBox .right input:focus {
+	border: 1px solid #7f8fa6;
+}
+.noticeSubjectBox .selectType select {
+	height: 100%;
+}
+.noticeFuncBox {
+	width: 1000px;
+	padding: 3px;
+}
+.noticeFuncBox div#nWriteOk {
+	width: 100px;
+	height: 30px;
+	line-height: 30px;
+	margin: auto;
+	text-align: center;
+	border: 1px solid #D5D5D5;
+	transition-property: background-color, color;
+	transition-duration: 0.5s;
+	cursor: pointer;
+}
+.noticeFuncBox div#nWriteOk:hover {
+	background-color: #7f8fa6;
+	color: white;
+}
+@media screen and (max-width: 2000px) {
+  .questionWrapper .innerRight {
+    margin-top: 5px;
+  }
+}
+.noticeListWrapper {
+}
+.noticeListWrapper:after {
+	content: "";
+	display: block;
+	clear: both;
+}
+.noticeListWrapper .innerList {
+	float: left;
+	margin-right: 5px;
+}
+.noticeListWrapper .innerList table#noticeList {
+	width: 1000px;
+	border-collapse: collapse;
+}
+.noticeListWrapper .innerList table#noticeList thead tr {
+	background-color: #dfe6e9;
+}
+.noticeListWrapper .innerList table#noticeList tbody tr {
+	transition-property: background-color, color;
+	transition-duration: 0.5s;
+}
+.noticeListWrapper .innerList table#noticeList tbody tr#noticePageNumber td {
+	border: 1px solid transparent;
+}
+.noticeListWrapper .innerList table#noticeList tbody tr#noticePageNumber td .pageNumberBox div {
+	display: inline-block;
+	width: 20px;
+	border: 1px solid #D5D5D5;
+}
+.noticeListWrapper .innerList table#noticeList tbody tr#noticePageNumber td .pageNumberBox .pageFunc {
+	width: 40px;
+	border: 1px solid #D5D5D5;
+	cursor: pointer;
+}
+.noticeListWrapper .innerList table#noticeList tbody tr#noticePageNumber td .pageNumberBox .pageFunc:hover {
+	background-color: #dfe6e9;
+	border: 1px solid #dfe6e9;
+}
+.noticeListWrapper .innerList table#noticeList tbody tr#noticePageNumber td .pageNumberBox .pageFunc:active {
+	background-color: #dfe6e9;
+	border: 1px solid #dfe6e9;
+}
+.noticeListWrapper .innerList table#noticeList tbody tr#noticePageNumber td .pageNumberBox .pageNumbers {
+	cursor: pointer;
+}
+.noticeListWrapper .innerList table#noticeList tbody tr#noticePageNumber td .pageNumberBox .pageNumbers:hover {
+	background-color: #dfe6e9;
+	border: 1px solid #dfe6e9;
+}
+.noticeListWrapper .innerList table#noticeList tbody tr#noticePageNumber td .pageNumberBox .pageNumbers:active {
+	background-color: #dfe6e9;
+	border: 1px solid #dfe6e9;
+}
+.noticeListWrapper .innerList table#noticeList tbody tr#noticePageNumber td .pageNumberBox .pageNumbers.active {
+	background-color: #dfe6e9;
+	border: 1px solid #dfe6e9;
+	cursor: default;
+}
+.noticeListWrapper .innerList table#noticeList tbody tr.active {
+	background-color: rgba(246, 246, 246, 0.8);
+}
+.noticeListWrapper .innerList table#noticeList tbody tr:hover:not(#noticePageNumber) {
+	background-color: rgba(246, 246, 246, 0.8);
+}
+.noticeListWrapper .innerList table#noticeList td {
+	padding: 5px;
+	border: 1px solid #D5D5D5;
+}
+.noticeListWrapper .innerList table#noticeList td.emptyDto {
+	padding: 20px;
+}
+.noticeListWrapper .innerList table#noticeList td:not(#td-2S) {
+	text-align: center;
+}
+.noticeListWrapper .innerList table#noticeList tr .td-1 {
+	width: 50px;
+}
+.noticeListWrapper .innerList table#noticeList tr .td-2 {
+	cursor: pointer;
+}
+.noticeListWrapper .innerList table#noticeList tr .td-3 {
+	width: 150px;
+}
+.noticeListWrapper .innerView {
+	display: none;
+	float: left;
+	width: 998px;
+	border: 1px solid #D5D5D5;
+}
+.noticeListWrapper .innerView .subject {
+	padding: 5px;
+	border-bottom: 1px solid #D5D5D5;
+}
+.noticeListWrapper .innerView .content {
+	padding: 5px;
+	border-bottom: 1px solid #D5D5D5;
+}
+.noticeListWrapper .innerView .funcBox {
+	padding: 5px;
+	text-align: right;
+}
+.noticeListWrapper .innerView .funcBox div {
+	display: inline-block;
+}
+.noticeListWrapper .innerView .funcBox div#update {
+	width: 100px;
+	height: 30px;
+	line-height: 30px;
+	text-align: center;
+	border: 1px solid #D5D5D5;
+	transition-property: background-color, color;
+	transition-duration: 0.5s;
+	cursor: pointer;
+}
+.noticeListWrapper .innerView .funcBox div#update:hover {
+	background-color: #7f8fa6;
+	color: white;
+}
+.bottomWrapper .rightContent table#orderCancleList {
+	width: 1500px;
+	border-collapse: collapse;
+	text-align: center;
+	border: 1px solid #D5D5D5;
+}
+.bottomWrapper .rightContent table#orderCancleList tr td.emptyDto {
+	padding: 20px;
+}
+.bottomWrapper .rightContent table#orderCancleList thead tr {
+	background-color: #dfe6e9;
+}
+.bottomWrapper .rightContent table#orderCancleList tbody tr {
+	transition-property: background-color, color;
+	transition-duration: 0.5s;
+}
+.bottomWrapper .rightContent table#orderCancleList tbody tr:hover:not(#orderPageNumber) {
+	background-color: rgba(246, 246, 246, 0.8);
+}
+.bottomWrapper .rightContent table#orderCancleList td {
+	padding: 5px;
+	border: 1px solid #D5D5D5;
+}
+.bottomWrapper .rightContent table#orderCancleList td a {
+	text-decoration: none;
+	color: black;
+}
+.bottomWrapper .rightContent table#orderCancleList tr td.td-1 {
+	width: 70px;
+}
+.bottomWrapper .rightContent table#orderCancleList tr td.td-2 {
+	width: 90px;
+}
+.bottomWrapper .rightContent table#orderCancleList tr td.td-3 {
+	width: 250px;
+}
+.bottomWrapper .rightContent table#orderCancleList tr td.td-5 {
+	width: 500px;
+	word-break: break-all;
+	word-wrap: break-word;
+}
+.bottomWrapper .rightContent table#orderCancleList tr td.td-5.subject {
+	text-align: justify;
+}
+.bottomWrapper .rightContent table#orderCancleList tr td.td-5 .regDate {
+	color: gray;
+}
+.bottomWrapper .rightContent table#orderCancleList tr td.td-7 {
+	width: 150px;
+}
+.bottomWrapper .rightContent table#orderCancleList tr td.td-8 {
+	width: 100px;
+}
+.bottomWrapper .rightContent table#orderCancleList tr td.td-8 .funcBtn {
+	width: 50px;
+	margin: auto;
+	margin-bottom: 3px;
+	padding: 3px;
+	border: 1px solid #D5D5D5;
+	transition-property: background-color, color;
+	transition-duration: 0.5s;
+	cursor: pointer;
+}
+.bottomWrapper .rightContent table#orderCancleList tr td.td-8 .funcBtn:hover {
+	background-color: #7f8fa6;
+	color: white;
+}
+.bottomWrapper .rightContent table#orderCancleList tr td span.buyer {
+	color: #F15F5F;
+	font-weight: bold;
+}
+.bottomWrapper .rightContent table#orderCancleList tr td span.seller {
+	color: #003399;
+	font-weight: bold;
+}
+.bottomWrapper .rightContent table#orderCancleList  tbody tr#orderPageNumber td {
+	border: 1px solid transparent;
+}
+.bottomWrapper .rightContent table#orderCancleList  tbody tr#orderPageNumber .pageNumberBox div {
+	display: inline-block;
+	width: 20px;
+	border: 1px solid #D5D5D5;
+}
+.bottomWrapper .rightContent table#orderCancleList  tbody tr#orderPageNumber .pageNumberBox .pageFunc {
+	width: 40px;
+	border: 1px solid #D5D5D5;
+	cursor: pointer;
+}
+.bottomWrapper .rightContent table#orderCancleList  tbody tr#orderPageNumber .pageNumberBox .pageFunc:hover {
+	background-color: #dfe6e9;
+	border: 1px solid #dfe6e9;
+}
+.bottomWrapper .rightContent table#orderCancleList  tbody tr#orderPageNumber .pageNumberBox .pageFunc:active {
+	background-color: #dfe6e9;
+	border: 1px solid #dfe6e9;
+}
+.bottomWrapper .rightContent table#orderCancleList  tbody tr#orderPageNumber .pageNumberBox .pageNumbers {
+	cursor: pointer;
+}
+.bottomWrapper .rightContent table#orderCancleList  tbody tr#orderPageNumber .pageNumberBox .pageNumbers:hover {
+	background-color: #dfe6e9;
+	border: 1px solid #dfe6e9;
+}
+.bottomWrapper .rightContent table#orderCancleList  tbody tr#orderPageNumber .pageNumberBox .pageNumbers:active {
+	background-color: #dfe6e9;
+	border: 1px solid #dfe6e9;
+}
+.bottomWrapper .rightContent table#orderCancleList  tbody tr#orderPageNumber .pageNumberBox .pageNumbers.active {
+	background-color: #dfe6e9;
+	border: 1px solid #dfe6e9;
+	cursor: default;
+}
+.confirmPanel {
+	display: none;
+	position: fixed;
+	z-index: 1;
+	width: 100%;
+	height: 100%;
+	left: 0;
+	top: 0;
+	overflow: auto;
+	background-color: rgba(0, 0, 0, 0.1);
+}
+.confirmPanel .confirmBox {
+	position: absolute;
+	width: 350px;
+	height: 200px;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	background-color: white;
+	border: 1px solid #7f8fa6;
+	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+.confirmPanel .confirmBox #confirmText {
+	font-size: 12pt;
+	margin-top: 35px;
+	text-align: center;
+}
+.confirmPanel .confirmBox #confirmBtn {
+	width: 100px;
+	height: 50px;
+	line-height: 50px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 55px;
+	text-align: center;
+	color: white;
+	font-weight: bold;
+	font-size: 10pt;
+	border: none;
+	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+	background-color: #7f8fa6;
+	cursor: pointer; 
+	transition-property: opacity;
+	transition-duration: 1s;
+}
+.confirmPanel .confirmBox #confirmBtn:hover {
+	opacity: 0.5;
+}
+.confirmPanel2 {
+	display: none;
+	position: fixed;
+	z-index: 1;
+	width: 100%;
+	height: 100%;
+	left: 0;
+	top: 0;
+	overflow: auto;
+	background-color: rgba(0, 0, 0, 0.1);
+}
+.confirmPanel2 .confirmBox2 {
+	position: absolute;
+	width: 350px;
+	height: 200px;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	text-align: center;
+	background-color: white;
+	border: 1px solid #003399;
+	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+.confirmPanel2 .confirmBox2 #confirmText2 {
+	font-size: 12pt;
+	margin-top: 35px;
+	text-align: center;
+}
+.confirmPanel2 .confirmBox2 .confirmBtn2 {
+	display: inline-block;
+	width: 100px;
+	height: 50px;
+	line-height: 50px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 55px;
+	text-align: center;
+	color: white;
+	font-weight: bold;
+	font-size: 10pt;
+	border: none;
+	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+	background-color: #7f8fa6;
+	cursor: pointer;
+	transition-property: opacity;
+	transition-duration: 1s;
+}
+.confirmPanel2 .confirmBox2 .confirmBtn2#confirmCancle {
+	background-color: #4F5C74;
+}
+.confirmPanel2 .confirmBox2 #confirmOk:hover, #confirmCancle:hover {
+	opacity: 0.5;
+}

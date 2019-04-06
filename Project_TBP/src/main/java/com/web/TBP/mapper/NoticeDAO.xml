@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.web.TBP.dao.NoticeDAO">
+	<insert id="insertNotice">
+		INSERT INTO notices(noticeNo, memberNo, productNo, noticeWay, noticeStatus) VALUES(notice_seq.nextval, #{param1}, #{param2}, #{param3}, 1)
+	</insert>
+	<select id="selectMemberNo" resultType="Integer">
+		SELECT memberNo FROM product WHERE productNo = #{param1}
+	</select>
+	<select id="selectQMemberNo" resultType="Integer">
+		SELECT memberNo FROM productQuestion WHERE questionNo = #{param1}
+	</select>
+	<select id="selectOMemberNo" resultType="Integer">
+		SELECT memberNo FROM product WHERE productNo = (SELECT productNo FROM orders WHERE orderNo = #{param1})
+	</select>
+	<select id="selectOMemberNo2" resultType="Integer">
+		SELECT memberNo FROM orders WHERE orderNo = #{param1}
+	</select>
+	<select id="selectOProductNo" resultType="Integer">
+		SELECT productNo FROM orders WHERE orderNo = #{param1}
+	</select>
+	<select id="selectCMemberNo" resultType="Integer">
+		SELECT memberNo FROM customerQuestion WHERE cQuestionNo = #{param1}
+	</select>
+	<select id="selectNotices" resultType="com.web.TBP.beans.NoticeDTO">
+		SELECT * FROM notices WHERE memberNo = #{param1} ORDER BY noticeRegDate DESC
+	</select>
+	<update id="readNotice">
+		UPDATE notices SET noticeStatus = 2 WHERE noticeNo = #{param1}
+	</update>
+	<select id="selectNoticeCount" resultType="Integer">
+		SELECT count(*) FROM notices WHERE memberNo = #{param1} AND noticeStatus = 1
+	</select>
+	<delete id="deleteNotice">
+		DELETE FROM notices WHERE noticeNo = #{param1}
+	</delete>
+	<delete id="deleteAllNotice">
+		DELETE FROM notices WHERE memberNo = #{param1} AND noticeStatus = 2
+	</delete>
+</mapper>

@@ -1,0 +1,285 @@
+@charset "UTF-8";
+* { font-family: "나눔고딕"; }
+.joinSection {
+	margin-bottom: 20px;
+}
+.joinSection .joinSectionInner {
+	width: 1000px;
+	margin: auto;
+}
+.joinSection .joinSectionInner .joinSectionTop {
+	padding: 50px;
+}
+.joinSection .joinSectionInner .joinSectionTop span:not(.joinContentTitle) {
+	float: right;
+	margin: 15px 5px;
+	border-top: 3px solid;
+	border-top-color: transparent;
+}
+.joinSection .joinSectionInner .joinSectionTop span.joinContentTitle {
+	font-size: 25pt;
+	font-weight: bold;
+}
+.joinSection .joinSectionInner .joinSectionTop span.active {
+	color: #003399;
+	font-weight: bold;
+	border-top-color: #003399;
+}
+.joinSection .joinSectionInner .joinSectionTop table.mainTable {
+	width: 700px;
+	border-collapse: collapse;
+	margin: auto;
+}
+.joinSection .joinSectionInner .joinSectionTop table.mainTable th {
+	width: 700px;
+	height: 70px;
+	border-bottom: 2px solid #003399;
+	background-color: #F6F6F6;
+	border: 1px solid #D5D5D5;
+	cursor: pointer;
+}
+.joinSection .joinSectionInner .joinSectionTop table.mainTable td {
+	border: none;
+}
+.joinSection .joinSectionInner .joinSectionTop table.mainTable td.contentBorder {
+	border: 1px solid #D5D5D5;
+}
+.joinSection .joinSectionInner .joinSectionTop .joinSectionTopInner {
+	position: relative;
+	height: 700px;
+}
+.joinSection .joinSectionInner .joinSectionTop .joinSectionTopInner #tbpJoinContent {
+	position: absolute;
+	visibility: hidden;
+}
+.joinSection .joinSectionInner .joinSectionTop .joinSectionTopInner #tbpJoinContent.on {
+	position: absolute;
+	visibility: visible;
+	width: 100%;
+}
+.joinSection .joinSectionInner .joinSectionTop .joinSectionTopInner #tbpJoinContent.on .tbpJoinContentTop {
+	padding: 20px;
+}
+.joinSection .joinSectionInner .joinSectionTop .joinSectionTopInner #tbpJoinContent.on .tbpJoinContentTop label {
+	font-weight: bold;
+}
+.joinSection .joinSectionInner .joinSectionTop .joinSectionTopInner #tbpJoinContent.on .tbpJoinContentTop .tbpJoinContentInputAllBox {
+	width: 500px;
+	height: 50px; 
+	margin: auto;
+}
+.joinSection .joinSectionInner .joinSectionTop .joinSectionTopInner #tbpJoinContent.on .tbpJoinContentTop .tbpJoinContentInputAllBox .tbpJoinInputBox1 {
+	width: 90%;
+	line-height: 50px;
+	float: left;
+}
+.joinSection .joinSectionInner .joinSectionTop .joinSectionTopInner #tbpJoinContent.on .tbpJoinContentTop .tbpJoinContentInputAllBox .tbpJoinInputBox1 .selectBox {
+	margin-top: 10px;
+	margin-right: 10px;
+	position: relative;
+	float: left;
+	width: 80px;
+	height: 30px;
+	border: 1px solid #D5D5D5;
+	text-align: center;
+	cursor: pointer;
+}
+.joinSection .joinSectionInner .joinSectionTop .joinSectionTopInner #tbpJoinContent.on .tbpJoinContentTop .tbpJoinContentInputAllBox .tbpJoinInputBox1 .selectBoxEmail {
+	margin-top: 10px;
+	margin-right: 10px;
+	position: relative;
+	float: right;
+	width: 120px;
+	height:30px;
+	border: 1px solid #D5D5D5;
+	text-align: center;
+	cursor: pointer;
+}
+.joinSection .joinSectionInner .joinSectionTop .joinSectionTopInner #tbpJoinContent.on .tbpJoinContentTop .tbpJoinContentInputAllBox .tbpJoinInputBox1 .selectBox:hover {
+	border: 1px solid #003399;
+}
+.joinSection .joinSectionInner .joinSectionTop .joinSectionTopInner #tbpJoinContent.on .tbpJoinContentTop .tbpJoinContentInputAllBox .tbpJoinInputBox1 .selectBoxEmail:hover {
+	border: 1px solid #003399;
+}
+.joinSection .joinSectionInner .joinSectionTop .joinSectionTopInner #tbpJoinContent.on .tbpJoinContentTop .tbpJoinContentInputAllBox .tbpJoinInputBox1 .selectBoxPnum:hover {
+	border: 1px solid #003399;
+}
+.joinSection .joinSectionInner .joinSectionTop .joinSectionTopInner #tbpJoinContent.on .tbpJoinContentTop .tbpJoinContentInputAllBox .tbpJoinInputBox1 .selectBox .selectBoxInner  {
+	width: 50px;
+	line-height: 30px;
+	float: left;
+	border-right: 1px solid #D5D5D5;
+}
+.joinSection .joinSectionInner .joinSectionTop .joinSectionTopInner #tbpJoinContent.on .tbpJoinContentTop .tbpJoinContentInputAllBox .tbpJoinInputBox1 .selectBoxEmail .selectBoxInnerEmail  {
+	width: 90px;
+	line-height: 30px;
+	float: left;
+	border-right: 1px solid #D5D5D5;
+}
+.joinSection .joinSectionInner .joinSectionTop .joinSectionTopInner #tbpJoinContent.on .tbpJoinContentTop .tbpJoinContentInputAllBox .tbpJoinInputBox1 .selectBox img {
+	position: absolute;
+	right: 0%;
+}
+.joinSection .joinSectionInner .joinSectionTop .joinSectionTopInner #tbpJoinContent.on .tbpJoinContentTop .tbpJoinContentInputAllBox .tbpJoinInputBox1 .selectBoxEmail img {
+	position: absolute;
+	right: 0%;
+}
+.joinSection .joinSectionInner .joinSectionTop .joinSectionTopInner #tbpJoinContent.on .tbpJoinContentTop .tbpJoinContentInputAllBox .tbpJoinInputBox1 .dropDown {
+	display: none;
+	position: absolute;
+	top: 100%;
+	left: -1%;
+	width: 80px;
+	height: 250px;
+	overflow: auto;
+	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+	text-align: center;
+	border: 1px solid #D5D5D5;
+	background-color: white;
+	z-index: 1;
+}
+.joinSection .joinSectionInner .joinSectionTop .joinSectionTopInner #tbpJoinContent.on .tbpJoinContentTop .tbpJoinContentInputAllBox .tbpJoinInputBox1 .dropDownPnum {
+	display: none;
+	position: absolute;
+	top: 100%;
+	left: -1%;
+	width: 80px;
+	height: 250px;
+	overflow: auto;
+	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+	text-align: center;
+	border: 1px solid #D5D5D5;
+	background-color: white;
+	z-index: 1;
+}
+.joinSection .joinSectionInner .joinSectionTop .joinSectionTopInner #tbpJoinContent.on .tbpJoinContentTop .tbpJoinContentInputAllBox .tbpJoinInputBox1 .dropDownEmail {
+	display: none;
+	position: absolute;
+	top: 100%;
+	left: -1%;
+	width: 120px;
+	height: auto;
+	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+	text-align: center;
+	border: 1px solid #D5D5D5;
+	background-color: white;
+}
+.joinSection .joinSectionInner .joinSectionTop .joinSectionTopInner #tbpJoinContent.on .tbpJoinContentTop .tbpJoinContentInputAllBox .tbpJoinInputBox1 .dropDown div {
+	border-bottom: 1px solid #D5D5D5;
+	cursor: pointer;
+}
+.joinSection .joinSectionInner .joinSectionTop .joinSectionTopInner #tbpJoinContent.on .tbpJoinContentTop .tbpJoinContentInputAllBox .tbpJoinInputBox1 .dropDown div:hover {
+	background-color: #EAEAEA;
+}
+.joinSection .joinSectionInner .joinSectionTop .joinSectionTopInner #tbpJoinContent.on .tbpJoinContentTop .tbpJoinContentInputAllBox .tbpJoinInputBox1 .dropDownEmail div:hover {
+	background-color: #EAEAEA;
+}
+.joinSection .joinSectionInner .joinSectionTop .joinSectionTopInner #tbpJoinContent.on .tbpJoinContentTop .tbpJoinContentInputAllBox .tbpJoinInputBox1 .dropDownPnum div:hover {
+	background-color: #EAEAEA;
+}
+.joinSection .joinSectionInner .joinSectionTop .joinSectionTopInner #tbpJoinContent.on .tbpJoinContentTop .tbpJoinContentInputAllBox .tbpJoinInputBox1 input:not(.checkGender) {
+	width: 100%;
+	border: 1px solid #D5D5D5;
+	height: 30px;
+	outline: 0;
+}
+.joinSection .joinSectionInner .joinSectionTop .joinSectionTopInner #tbpJoinContent.on .tbpJoinContentTop .tbpJoinContentInputAllBox .tbpJoinInputBox1 input.InputPnum {
+	width: 20%;
+}
+.joinSection .joinSectionInner .joinSectionTop .joinSectionTopInner #tbpJoinContent.on .tbpJoinContentTop .tbpJoinContentInputAllBox .tbpJoinInputBox1 input.InputEmail {
+	width: 30%;
+}
+.joinSection .joinSectionInner .joinSectionTop .joinSectionTopInner #tbpJoinContent.on .tbpJoinContentTop .tbpJoinContentInputAllBox .tbpJoinInputBox1 input:hover{
+	border: 1px solid #003399;
+}
+.joinSection .joinSectionInner .joinSectionTop .joinSectionTopInner #tbpJoinContent.on .tbpJoinContentTop .tbpJoinContentInputAllBox .tbpJoinInputBox1 input:focus{
+	border: 1px solid #003399;
+}
+.joinSection .joinSectionInner .joinSectionTop .joinSectionTopInner #tbpJoinContent.on .tbpJoinContentTop .tbpJoinContentInputAllBox .tbpJoinInputBox2 {
+	float: right;
+	height: 100%;
+	padding-top: 10px;
+	box-sizing: border-box;
+}
+.joinSection .joinSectionInner .joinSectionTop .joinSectionTopInner #tbpJoinContent.on .tbpJoinContentTop .tbpJoinContentInputLabel {
+	width: 500px;
+	margin: auto;
+}
+.joinSection .joinSectionInner .joinSectionTop .joinSectionTopInner #tbpJoinContent.on .tbpJoinContentTop .tbpJoinContentInputLabel {
+	color: #003399;
+	font-size: 10pt;
+}
+.joinSection .joinSectionInner .joinSectionTop .joinSectionTopInner #tbpJoinContent.on .tbpJoinContentTop .tbpJoinContentInputLabel hr {
+	border: 1px solid #D5D5D5;
+}
+.joinSection .joinSectionInner .joinSectionTop .joinSectionTopInner #tbpJoinContent.on .tbpJoinContentTop .tbpJoinContentInputLabel hr#pw1HR {
+	border: 1px solid #D5D5D5;
+}
+.joinSection .joinSectionInner .joinSectionTop .joinSectionTopInner #tbpJoinContent.on .tbpJoinContentTop .tbpJoinContentInputLabel hr#pw2HR {
+	border: 1px solid #D5D5D5;
+}
+.joinSection .joinSectionInner .joinSectionTop .joinSectionTopInner #tbpJoinContent.on #tbpJoinBtn {
+	width: 150px;
+	height: 70px;
+	line-height: 70px;
+	margin: auto;
+	text-align: center;
+	color: white;
+	font-weight: bold;
+	border: none;
+	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+	background-color: #003399;
+	cursor: pointer; 
+	transition-property: opacity;
+	transition-duration: 1s;
+}
+.joinSection .joinSectionInner .joinSectionTop .joinSectionTopInner #tbpJoinContent.on #tbpJoinBtn:hover {
+	opacity: 0.5;
+}
+.joinSection .joinSectionInner .joinSectionTop .joinSectionTopInner #tbpJoinContent.on #joinOkPanel {
+	display: none;
+	position: fixed;
+	z-index: 1;
+	width: 100%;
+	height: 100%;
+	left: 0;
+	top: 0;
+	overflow: auto;
+	background-color: rgba(0, 0, 0, 0.1);
+}
+.joinSection .joinSectionInner .joinSectionTop .joinSectionTopInner #tbpJoinContent.on #joinOkPanel #joinOk {
+	position: absolute;
+	width: 350px;
+	height: 200px;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	background-color: white;
+	border: 1px solid #003399;
+	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+.joinSection .joinSectionInner .joinSectionTop .joinSectionTopInner #tbpJoinContent.on #joinOkPanel #joinOk .joinText {
+	text-align: center;
+	margin-top: 35px;
+}
+.joinSection .joinSectionInner .joinSectionTop .joinSectionTopInner #tbpJoinContent.on #tbpJoinCheckBtn {
+	width: 100px;
+	height: 50px;
+	line-height: 50px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 55px;
+	text-align: center;
+	color: white;
+	font-weight: bold;
+	font-size: 10pt;
+	border: none;
+	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+	background-color: #003399;
+	cursor: pointer; 
+	transition-property: opacity;
+	transition-duration: 1s;
+}
+.joinSection .joinSectionInner .joinSectionTop .joinSectionTopInner #tbpJoinContent.on #tbpJoinCheckBtn:hover {
+	opacity: 0.5;
+}

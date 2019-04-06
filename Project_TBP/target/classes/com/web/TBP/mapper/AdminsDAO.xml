@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.web.TBP.dao.AdminsDAO">
+	<select id="selectAdminCQuestion" resultType="com.web.TBP.beans.CustomerQuestionDTO">
+		<![CDATA[
+			SELECT * FROM (SELECT rownum rnum, c.*, (SELECT shopNo FROM shop WHERE memberNo = c.memberNo) shopNo, (SELECT shopName FROM shop WHERE memberNo = c.memberNo) shopName FROM (SELECT * FROM customerQuestion WHERE cQuestionStatus = 1 ORDER BY cQuestionRegDate DESC) c ) WHERE rnum >= #{param1} AND rnum < #{param1} + #{param2}
+		]]>
+	</select>
+	<select id="selectAdminCQuestionCount" resultType="Integer">
+		SELECT count(*) FROM customerQuestion WHERE cQuestionStatus = 1
+	</select>
+	<select id="selectRAdminCQuestion" resultType="com.web.TBP.beans.CustomerQuestionDTO">
+		SELECT * FROM customerQuestion WHERE cQuestionNo = #{param1}
+	</select>
+	<insert id="insertAdminCRecomment" parameterType="com.web.TBP.beans.CustomerRecomment">
+		INSERT INTO customerRecomment VALUES(cRecomment_seq.nextval, #{cQuestionNo}, #{cRecommentContent}, SYSDATE)
+	</insert>
+	<update id="updateCQuestionStatus">
+		UPDATE customerQuestion SET cQuestionStatus = 2 WHERE cQuestionNo = #{param1}
+	</update>
+	<select id="checkHasRecomment" resultType="Integer">
+		SELECT cQuestionStatus FROM customerQuestion WHERE cQuestionNo = #{param1}
+	</select>
+	<insert id="insertAllNotice" parameterType="com.web.TBP.beans.AllNoticeDTO">
+		INSERT INTO allNotice(allNoticeNo, allNoticeSubject, allNoticeContent, allNoticeType) VALUES(allNotice_seq.nextval, #{allNoticeSubject}, #{allNoticeContent}, #{allNoticeType})
+	</insert>
+	<select id="selectAllNotice" resultType="com.web.TBP.beans.AllNoticeDTO">
+		<![CDATA[
+			SELECT * FROM (SELECT rownum rnum, a.* FROM (SELECT * FROM allNotice ORDER BY allNoticeRegDate DESC) a ) WHERE rnum >= #{param1} AND rnum < #{param1} + #{param2}
+		]]>		
+	</select>
+	<select id="allNoticeView" resultType="com.web.TBP.beans.AllNoticeDTO">
+		SELECT * FROM allNotice WHERE allNoticeNo = #{param1}
+	</select>
+	<select id="selectAllNoticeCount" resultType="Integer">
+		SELECT count(*) FROM allNotice
+	</select>
+	<select id="selectOrderCancle" resultType="com.web.TBP.beans.OrderCancleDTO">
+		<![CDATA[
+			SELECT * FROM (SELECT rownum rnum, o.*, (SELECT shopNo FROM shop WHERE memberNo = o.memberNo) orderShopNo, (SELECT shopName FROM shop WHERE memberNo = o.memberNo) orderShopName, (SELECT shopNo FROM shop WHERE memberNo = p.memberNo) sellShopNo, (SELECT shopName FROM shop WHERE memberNo = p.memberNo) sellShopName, (SELECT memberName FROM members WHERE memberNo = p.memberNo) sellMemberName, (SELECT memberPnum FROM members WHERE memberNo = p.memberNo) sellMemberPnum, p.productSubject FROM (SELECT * FROM orders WHERE orderStatus = 3 OR orderStatus = 4 ORDER BY orderRegDate DESC) o, product p WHERE (o.productNo = p.productNo)) WHERE rnum >= #{param1} AND rnum < #{param1} + #{param2}
+		]]>
+	</select>
+	<select id="selectOrderCancleCount" resultType="Integer">
+		SELECT count(*) FROM orders WHERE orderStatus = 3 OR orderStatus = 4
+	</select>
+	<update id="updateMemberMoney">
+		UPDATE members SET memberMoney = memberMoney + (SELECT orderPrice FROM orders WHERE orderNo = #{param1}) WHERE memberNo = (SELECT memberNo FROM orders WHERE orderNo = #{param1})
+	</update>
+	<update id="updateProductStock">
+		UPDATE product SET productStock = productStock + (SELECT orderStock FROM orders WHERE orderNo = #{param1}) WHERE productNo = (SELECT productNo FROM orders WHERE orderNo = #{param1})
+	</update>
+	<update id="updateProductStatus">
+		UPDATE product SET productStatus = 1 WHERE productNo = (SELECT productNo FROM orders WHERE orderNo = #{param1})
+	</update>
+	<update id="updateOrderStatus">
+		UPDATE orders SET orderStatus = 5 WHERE orderNo = #{param1}
+	</update>
+	<update id="updateOrderStatus2">
+		UPDATE orders SET orderStatus = 1 WHERE orderNo = #{param1}	
+	</update>
+</mapper>
