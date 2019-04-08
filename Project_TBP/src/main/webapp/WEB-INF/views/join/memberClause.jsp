@@ -9,12 +9,6 @@
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/memberClause.css"/>
 <script type="text/javascript">
 $(document).ready(function() {
-	// ContextPath
-	function getContextPath() {
-		var set=location.href.indexOf(location.host)+location.host.length;
-		var Path=location.href.substring(set, location.href.indexOf("/", set+1));
-		return Path;
-	}
 	// TBP PLACE 회원가입 탭
 	$("#tbpJoin").click(function() {
 		$("#tbpJoin").addClass("active");
@@ -50,54 +44,54 @@ $(document).ready(function() {
 			for(var i=0; i<checkedAll.length; i++) {
 				checkedAll[i].checked = true;
 			}
-			$("#joinCheckAll_Img").attr("src", getContextPath() + "/resources/img/join/check2.jpg");
-			$("#joinCheck1_Img").attr("src", getContextPath() + "/resources/img/join/check2.jpg");
-			$("#joinCheck2_Img").attr("src", getContextPath() + "/resources/img/join/check2.jpg");
-			$("#joinCheck3_Img").attr("src", getContextPath() + "/resources/img/join/check2.jpg");
-			$("#joinCheck4_Img").attr("src", getContextPath() + "/resources/img/join/check2.jpg");
+			$("#joinCheckAll_Img").attr("src", "${pageContext.request.contextPath}/resources/img/join/check2.jpg");
+			$("#joinCheck1_Img").attr("src", "${pageContext.request.contextPath}/resources/img/join/check2.jpg");
+			$("#joinCheck2_Img").attr("src", "${pageContext.request.contextPath}/resources/img/join/check2.jpg");
+			$("#joinCheck3_Img").attr("src", "${pageContext.request.contextPath}/resources/img/join/check2.jpg");
+			$("#joinCheck4_Img").attr("src", "${pageContext.request.contextPath}/resources/img/join/check2.jpg");
 		} else {	
 			var checkedAll = $("input[type=checkbox]");
 			for(var i=0; i<checkedAll.length; i++) {
 				checkedAll[i].checked = false;
 			}
-			$("#joinCheckAll_Img").attr("src", getContextPath() + "/resources/img/join/check1.jpg");
-			$("#joinCheck1_Img").attr("src", getContextPath() + "/resources/img/join/check1.jpg");
-			$("#joinCheck2_Img").attr("src", getContextPath() + "/resources/img/join/check1.jpg");
-			$("#joinCheck3_Img").attr("src", getContextPath() + "/resources/img/join/check1.jpg");
-			$("#joinCheck4_Img").attr("src", getContextPath() + "/resources/img/join/check1.jpg");
+			$("#joinCheckAll_Img").attr("src", "${pageContext.request.contextPath}/resources/img/join/check1.jpg");
+			$("#joinCheck1_Img").attr("src", "${pageContext.request.contextPath}/resources/img/join/check1.jpg");
+			$("#joinCheck2_Img").attr("src", "${pageContext.request.contextPath}/resources/img/join/check1.jpg");
+			$("#joinCheck3_Img").attr("src", "${pageContext.request.contextPath}/resources/img/join/check1.jpg");
+			$("#joinCheck4_Img").attr("src", "${pageContext.request.contextPath}/resources/img/join/check1.jpg");
 		}
 		checkAll = !checkAll;
 	});
 	// checkbox : 1
 	$("#joinCheck1").click(function() {
  		if($("input[id=joinCheck1]:checked").length == 1) {
-			$("#joinCheck1_Img").attr("src", getContextPath() + "/resources/img/join/check2.jpg");
+			$("#joinCheck1_Img").attr("src", "${pageContext.request.contextPath}/resources/img/join/check2.jpg");
 		} else {
-			$("#joinCheck1_Img").attr("src", getContextPath() + "/resources/img/join/check1.jpg");
+			$("#joinCheck1_Img").attr("src", "${pageContext.request.contextPath}/resources/img/join/check1.jpg");
 		}
 	});
 	// checkbox : 2
 	$("#joinCheck2").click(function() {
  		if($("input[id=joinCheck2]:checked").length == 1) {
-			$("#joinCheck2_Img").attr("src", getContextPath() + "/resources/img/join/check2.jpg");
+			$("#joinCheck2_Img").attr("src", "${pageContext.request.contextPath}/resources/img/join/check2.jpg");
 		} else {
-			$("#joinCheck2_Img").attr("src", getContextPath() + "/resources/img/join/check1.jpg");
+			$("#joinCheck2_Img").attr("src", "${pageContext.request.contextPath}/resources/img/join/check1.jpg");
 		}
 	});
 	// checkbox : 3
 	$("#joinCheck3").click(function() {
  		if($("input[id=joinCheck3]:checked").length == 1) {
-			$("#joinCheck3_Img").attr("src", getContextPath() + "/resources/img/join/check2.jpg");
+			$("#joinCheck3_Img").attr("src", "${pageContext.request.contextPath}/resources/img/join/check2.jpg");
 		} else {
-			$("#joinCheck3_Img").attr("src", getContextPath() + "/resources/img/join/check1.jpg");
+			$("#joinCheck3_Img").attr("src", "${pageContext.request.contextPath}/resources/img/join/check1.jpg");
 		}
 	});
 	// checkbox : 4
 	$("#joinCheck4").click(function() {
  		if($("input[id=joinCheck4]:checked").length == 1) {
-			$("#joinCheck4_Img").attr("src", getContextPath() + "/resources/img/join/check2.jpg");
+			$("#joinCheck4_Img").attr("src", "${pageContext.request.contextPath}/resources/img/join/check2.jpg");
 		} else {
-			$("#joinCheck4_Img").attr("src", getContextPath() + "/resources/img/join/check1.jpg");
+			$("#joinCheck4_Img").attr("src", "${pageContext.request.contextPath}/resources/img/join/check1.jpg");
 		}
 	});
 });

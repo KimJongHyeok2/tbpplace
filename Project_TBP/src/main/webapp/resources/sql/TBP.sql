@@ -677,6 +677,7 @@ INSERT INTO productState VALUES (1, '미개봉 새제품');
 INSERT INTO productState VALUES (2, '새제품');
 INSERT INTO productState VALUES (3, '중고');
 INSERT INTO productState VALUES (4, '중고(하자있음)');
+<<<<<<< HEAD
 INSERT INTO productState VALUES (5, '중고(하자심함)');
 
 INSERT INTO administrator VALUES(admin_seq.nextval, 'tbpadmin', 'tbpadmin', 'ROLE_ADMIN', 1);
@@ -686,3 +687,6 @@ SELECT trunc(SYSDATE-TO_DATE(TO_CHAR(shopRegDate, 'YYYY-MM-DD'))) FROM shop WHER
 SELECT * FROM NLS_DATABASE_PARAMETERS;
 
 SELECT TO_DATE(SYSDATE) FROM dual;
+=======
+INSERT INTO productState VALUES (5, '중고(하자심함)');
+>>>>>>> branch 'master' of https://github.com/KimJongHyeok2/tbpplace.git

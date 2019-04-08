@@ -131,13 +131,6 @@ $(document).ready(function() {
 		checkEmail();	
 	});
 });
-// ContextPath
-function getContextPath() {
-	var set=location.href.indexOf(location.host)+location.host.length;
-	var Path=location.href.substring(set, location.href.indexOf("/", set+1));
-	return Path;
-}
-
 // 생년월일 선택 selectBox
 function dateConfig() {
 	var nowDate = new Date();
@@ -204,18 +197,18 @@ function checkID() {
 		if(id.length == 0) {
 			$("#idLabel").css("color", "#F15F5F");
 			$("#idLabel").html("아이디를 입력해주세요.");
-			$("#checkIMG_ID").attr("src", getContextPath() + "/resources/img/join/before_all.png");
+			$("#checkIMG_ID").attr("src", "${pageContext.request.contextPath}/resources/img/join/before_all.png");
 			id_Flag = false;
 		} else {
 			if(id.length < 6 || id.length > 10) {
 				$("#idLabel").css("color", "#F15F5F");
 				$("#idLabel").html("아이디는 6자 이상 10자 이하로 입력해주세요.");
-				$("#checkIMG_ID").attr("src", getContextPath() + "/resources/img/join/before_all.png");
+				$("#checkIMG_ID").attr("src", "${pageContext.request.contextPath}/resources/img/join/before_all.png");
 				id_Flag = false;
 			} else {
 				$("#idLabel").css("color", "#F15F5F");
 				$("#idLabel").html("아이디는 영문 대소문자 또는 숫자만 입력 가능합니다.");
-				$("#checkIMG_ID").attr("src", getContextPath() + "/resources/img/join/before_all.png");
+				$("#checkIMG_ID").attr("src", "${pageContext.request.contextPath}/resources/img/join/before_all.png");
 				id_Flag = false;
 			}	
 		}
@@ -225,7 +218,7 @@ function checkID() {
 function idOverlap() {
 	var id = $("#inputID").val();
 	$.ajax({
-		url: getContextPath() + "/member/idOverlap",
+		url: "${pageContext.request.contextPath}/member/idOverlap",
 		type: "POST",
 		cache: false,
 		data: {
@@ -236,12 +229,12 @@ function idOverlap() {
 				if(data != "Ok") {
 					$("#idLabel").css("color", "#F15F5F");
 					$("#idLabel").html("이미 사용 중인 아이디입니다.");
-					$("#checkIMG_ID").attr("src", getContextPath() + "/resources/img/join/before_all.png");
+					$("#checkIMG_ID").attr("src", "${pageContext.request.contextPath}/resources/img/join/before_all.png");
 					id_Flag = false;
 				} else {
 					$("#idLabel").css("color", "#003399");
 					$("#idLabel").html("사용 가능한 아이디입니다.");
-					$("#checkIMG_ID").attr("src", getContextPath() + "/resources/img/join/after_all.png");
+					$("#checkIMG_ID").attr("src", "${pageContext.request.contextPath}/resources/img/join/after_all.png");
 					id_Flag = true;
 				}
 			}
@@ -256,21 +249,21 @@ function checkPW1() {
 		if(new RegExp(pw_Pattern).test(pw1)) {
 			$("#pw1Label").css("color", "#003399");
 			$("#pw1Label").html("사용 가능한 비밀번호입니다.");
-			$("#checkIMG_PW1").attr("src", getContextPath() + "/resources/img/join/after_pw1.png");
+			$("#checkIMG_PW1").attr("src", "${pageContext.request.contextPath}/resources/img/join/after_pw1.png");
 		} else {
 			if(pw1.length == 0) {
 				$("#pw1Label").css("color", "#F15F5F");
 				$("#pw1Label").html("비밀번호를 입력해주세요.");
-				$("#checkIMG_PW1").attr("src", getContextPath() + "/resources/img/join/before_pw1.png");
+				$("#checkIMG_PW1").attr("src", "${pageContext.request.contextPath}/resources/img/join/before_pw1.png");
 			} else {
 				if(pw1.length < 8 || pw1.length > 20) {
 					$("#pw1Label").css("color", "#F15F5F");
 					$("#pw1Label").html("비밀번호는 8자 이상 20자 이하로 입력해주세요.");
-					$("#checkIMG_PW1").attr("src", getContextPath() + "/resources/img/join/before_pw1.png");
+					$("#checkIMG_PW1").attr("src", "${pageContext.request.contextPath}/resources/img/join/before_pw1.png");
 				} else {
 					$("#pw1Label").css("color", "#F15F5F");
 					$("#pw1Label").html("비밀번호는 영문 대소문자/숫자/특수문자를 혼합하여 입력해주세요.");
-					$("#checkIMG_PW1").attr("src", getContextPath() + "/resources/img/join/before_pw1.png");
+					$("#checkIMG_PW1").attr("src", "${pageContext.request.contextPath}/resources/img/join/before_pw1.png");
 				}
 			}
 		}
@@ -283,30 +276,30 @@ function checkPW2() {
 		if(new RegExp(pw_Pattern).test(pw2) && pw2 == $("#inputPW1").val()) {
 			$("#pw2Label").css("color", "#003399");
 			$("#pw2Label").html("비밀번호가 일치합니다.");
-			$("#checkIMG_PW2").attr("src", getContextPath() + "/resources/img/join/after_pw2.png");
+			$("#checkIMG_PW2").attr("src", "${pageContext.request.contextPath}/resources/img/join/after_pw2.png");
 			pw_Flag = true;
 		} else {
 			if(pw2.length == 0) {
 				$("#pw2Label").css("color", "#F15F5F");
 				$("#pw2Label").html("비밀번호를 입력해주세요.");
-				$("#checkIMG_PW2").attr("src", getContextPath() + "/resources/img/join/before_pw2.png");
+				$("#checkIMG_PW2").attr("src", "${pageContext.request.contextPath}/resources/img/join/before_pw2.png");
 				pw_Flag = false;
 			} else {
 				if(pw2.length < 8 || pw2.length > 20) {
 					$("#pw2Label").css("color", "#F15F5F");
 					$("#pw2Label").html("비밀번호는 8자 이상 20자 이하로 입력해주세요.");
-					$("#checkIMG_PW2").attr("src", getContextPath() + "/resources/img/join/before_pw2.png");
+					$("#checkIMG_PW2").attr("src", "${pageContext.request.contextPath}/resources/img/join/before_pw2.png");
 					pw_Flag = false;
 				} else {
 					if(pw2 != $("#inputPW1").val()) {
 						$("#pw2Label").css("color", "#F15F5F");
 						$("#pw2Label").html("위의 비밀번호와 일치하지 않습니다.");
-						$("#checkIMG_PW2").attr("src", getContextPath() + "/resources/img/join/before_pw2.png");
+						$("#checkIMG_PW2").attr("src", "${pageContext.request.contextPath}/resources/img/join/before_pw2.png");
 						pw_Flag = false;
 					} else {
 						$("#pw2Label").css("color", "#F15F5F");
 						$("#pw2Label").html("비밀번호는 영문 대소문자/숫자/특수문자를 혼합하여 입력해주세요.");
-						$("#checkIMG_PW2").attr("src", getContextPath() + "/resources/img/join/before_pw2.png");
+						$("#checkIMG_PW2").attr("src", "${pageContext.request.contextPath}/resources/img/join/before_pw2.png");
 						pw_Flag = false;
 					}
 				}
@@ -321,24 +314,24 @@ function checkName() {
 	if(new RegExp(name_Pattern).test(name)) {
 		$("#nameLabel").css("color", "#003399");
 		$("#nameLabel").html("올바른 입력입니다.");
-		$("#checkIMG_Name").attr("src", getContextPath() + "/resources/img/join/after_all.png");
+		$("#checkIMG_Name").attr("src", "${pageContext.request.contextPath}/resources/img/join/after_all.png");
 		name_Flag = true;
 	} else {
 		if(name.length == 0) {
 			$("#nameLabel").css("color", "#F15F5F");
 			$("#nameLabel").html("이름을 입력해주세요.");
-			$("#checkIMG_Name").attr("src", getContextPath() + "/resources/img/join/before_all.png");
+			$("#checkIMG_Name").attr("src", "${pageContext.request.contextPath}/resources/img/join/before_all.png");
 			name_Flag = false;
 		} else {
 			if(name.length.length < 2 || name.length > 10) {				
 				$("#nameLabel").css("color", "#F15F5F");
 				$("#nameLabel").html("이름은 2자 이상 10자 이하로 입력해주세요.");
-				$("#checkIMG_Name").attr("src", getContextPath() + "/resources/img/join/before_all.png");
+				$("#checkIMG_Name").attr("src", "${pageContext.request.contextPath}/resources/img/join/before_all.png");
 				name_Flag = false;
 			} else {				
 				$("#nameLabel").css("color", "#F15F5F");
 				$("#nameLabel").html("올바른 형식의 이름이 아닙니다.");
-				$("#checkIMG_Name").attr("src", getContextPath() + "/resources/img/join/before_all.png");
+				$("#checkIMG_Name").attr("src", "${pageContext.request.contextPath}/resources/img/join/before_all.png");
 				name_Flag = false;
 			}
 		}
@@ -350,7 +343,7 @@ function checkGender() {
 	if(gender.length > 0) {
 		$("#bgLabel").css("color", "#003399");
 		$("#bgLabel").html("올바른 입력입니다.");
-		$("#checkIMG_BG").attr("src", getContextPath() + "/resources/img/join/after_all.png");
+		$("#checkIMG_BG").attr("src", "${pageContext.request.contextPath}/resources/img/join/after_all.png");
 		gender_Flag = true;
 	}
 }
@@ -360,26 +353,26 @@ function checkPnum() {
 	var pnum_Pattern = /^[\d]{3}-[\d]{3,4}-[\d]{4}$/;
 	
 	if($("#selectPnum").html() != "선택") {
-		$("#selectIMG_Pnum").attr("src", getContextPath() + "/resources/img/join/after_all.png");
+		$("#selectIMG_Pnum").attr("src", "${pageContext.request.contextPath}/resources/img/join/after_all.png");
 	} else {
-		$("#selectIMG_Pnum").attr("src", getContextPath() + "/resources/img/join/before_all.png");
+		$("#selectIMG_Pnum").attr("src", "${pageContext.request.contextPath}/resources/img/join/before_all.png");
 	}
 	
 	if(new RegExp(pnum_Pattern).test(pnum)) {
 		$("#pnumLabel").css("color", "#003399");
 		$("#pnumLabel").html("올바른 전화번호입니다.");
-		$("#checkIMG_Pnum").attr("src", getContextPath() + "/resources/img/join/after_all.png");
+		$("#checkIMG_Pnum").attr("src", "${pageContext.request.contextPath}/resources/img/join/after_all.png");
 		pnum_Flag = true;
 	} else {
 		if($("#selectPnum").html() == "선택" || $("#inputPnum1").val().length == 0 || $("#inputPnum2").val().length == 0) {
 			$("#pnumLabel").css("color", "#F15F5F");
 			$("#pnumLabel").html("전화번호를 입력해주세요.");
-			$("#checkIMG_Pnum").attr("src", getContextPath() + "/resources/img/join/before_all.png");
+			$("#checkIMG_Pnum").attr("src", "${pageContext.request.contextPath}/resources/img/join/before_all.png");
 			pnum_Flag = false;
 		} else {
 			$("#pnumLabel").css("color", "#F15F5F");
 			$("#pnumLabel").html("전화번호 형식이 올바르지 않습니다.");
-			$("#checkIMG_Pnum").attr("src", getContextPath() + "/resources/img/join/before_all.png");
+			$("#checkIMG_Pnum").attr("src", "${pageContext.request.contextPath}/resources/img/join/before_all.png");
 			pnum_Flag = false;
 		}
 	}
@@ -390,26 +383,26 @@ function checkEmail() {
 	var email_Pattern = /^(([a-zA-Z\d][-_]?){3,15})@([a-zA-z\d]{5,15})\.([a-z]{2,3})$/;
 	
 	if($("#inputEmail2").val().length != 0) {
-		$("#selectIMG_Email").attr("src", getContextPath() + "/resources/img/join/after_all.png");
+		$("#selectIMG_Email").attr("src", "${pageContext.request.contextPath}/resources/img/join/after_all.png");
 	} else {
-		$("#selectIMG_Email").attr("src", getContextPath() + "/resources/img/join/before_all.png");
+		$("#selectIMG_Email").attr("src", "${pageContext.request.contextPath}/resources/img/join/before_all.png");
 	}
 	
 	if(new RegExp(email_Pattern).test(email)) {
 		$("#emailLabel").css("color", "#003399");
 		$("#emailLabel").html("올바른 이메일입니다.");
-		$("#checkIMG_Email").attr("src", getContextPath() + "/resources/img/join/after_all.png");
+		$("#checkIMG_Email").attr("src", "${pageContext.request.contextPath}/resources/img/join/after_all.png");
 		email_Flag = true;
 	} else {
 		if($("#inputEmail1").val().length == 0 || $("#inputEmail2").val().length == 0) {
 			$("#emailLabel").css("color", "#F15F5F");
 			$("#emailLabel").html("이메일을 입력해주세요.");
-			$("#checkIMG_Email").attr("src", getContextPath() + "/resources/img/join/before_all.png");
+			$("#checkIMG_Email").attr("src", "${pageContext.request.contextPath}/resources/img/join/before_all.png");
 			email_Flag = false;
 		} else {
 			$("#emailLabel").css("color", "#F15F5F");
 			$("#emailLabel").html("올바른 이메일 형식이 아닙니다.");
-			$("#checkIMG_Email").attr("src", getContextPath() + "/resources/img/join/before_all.png");
+			$("#checkIMG_Email").attr("src", "${pageContext.request.contextPath}/resources/img/join/before_all.png");
 			email_Flag = false;
 		}
 	}
@@ -420,7 +413,7 @@ function joinOk() {
 	if(id_Flag && pw_Flag && name_Flag && gender_Flag && pnum_Flag && email_Flag) {
 		// 회원가입 진행
 		$.ajax({
-			url: getContextPath() + "/member/insert",
+			url: "${pageContext.request.contextPath}/member/insert",
 			type: "POST",
 			cache: false,
 			data: {
@@ -437,7 +430,7 @@ function joinOk() {
 					var checkSuccess = data;
 					if(checkSuccess == "Ok") {
 						$(".joinText").html("가입되었습니다.");
-						$("#tbpJoinCheckBtn").attr("onclick", "location.href='"+ getContextPath() +"/main/memberLogin'");		
+						$("#tbpJoinCheckBtn").attr("onclick", "location.href='${pageContext.request.contextPath}/main/memberLogin'");		
 						$("#joinOkPanel").css("display", "block");
 						$("#jf2").removeClass("active");
 						$("#jf3").addClass("active");

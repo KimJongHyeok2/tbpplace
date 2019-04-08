@@ -5,7 +5,7 @@
 		UPDATE shop SET shopVisitcnt = shopVisitcnt + 1 WHERE memberNo = #{param1}
 	</update>
 	<select id="shopOpeningDate" resultType="Integer">
-		SELECT trunc(SYSDATE-TO_DATE(TO_CHAR(shopRegDate, 'YYYY-MM-DD'))) FROM shop WHERE memberNo = #{param1}
+		SELECT trunc(SYSDATE-TO_DATE(TO_CHAR(shopRegDate, 'YYYY-MM-DD HH24:MI:SS'), 'YYYY-MM-DD HH24:MI:SS')) FROM shop WHERE memberNo = #{param1}
 	</select>
 	<select id="shopSalesCount" resultType="Integer">
 		SELECT sum(orderStock) FROM orders WHERE productNo IN (SELECT productNo FROM product WHERE memberNo = #{param1}) AND orderStatus = 2
