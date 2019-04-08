@@ -1,4 +1,4 @@
-package com.web.TBP;
+package com.web.TBP.controller;
 
 import javax.servlet.http.HttpServletRequest;
 

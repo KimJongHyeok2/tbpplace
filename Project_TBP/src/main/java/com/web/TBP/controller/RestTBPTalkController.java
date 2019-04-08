@@ -1,4 +1,4 @@
-package com.web.TBP;
+package com.web.TBP.controller;
 
 import org.springframework.transaction.TransactionStatus;
 import org.springframework.transaction.support.TransactionCallbackWithoutResult;

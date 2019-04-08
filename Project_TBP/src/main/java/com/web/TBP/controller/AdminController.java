@@ -1,4 +1,4 @@
-package com.web.TBP;
+package com.web.TBP.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
