@@ -678,5 +678,3 @@ INSERT INTO productState VALUES (2, '새제품');
 INSERT INTO productState VALUES (3, '중고');
 INSERT INTO productState VALUES (4, '중고(하자있음)');
 INSERT INTO productState VALUES (5, '중고(하자심함)');
-
-INSERT INTO administrator VALUES(admin_seq.nextval, 'tbpadmin', 'tbpadmin', 'ROLE_ADMIN', 1);

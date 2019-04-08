@@ -12,7 +12,7 @@ var way_Count = 0;
 var state_Count = 0;
 // 페이지 로드 완료 후 카테고리 대분류 불러오기
 $.ajax({
-	url: getContextPath() + "/category/depth1",
+	url: "${pageContext.request.contextPath}/category/depth1",
 	type: "POST",
 	cache: false,
 	success: function(data, status) {
@@ -30,7 +30,7 @@ $.ajax({
 });
 // 페이지 로드 완료 후 거래방식 목록 불러오기
 $.ajax({
-	url: getContextPath() + "/category/salesWay",
+	url: "${pageContext.request.contextPath}/category/salesWay",
 	type: "POST",
 	cache: false,
 	success: function(data, status) {
@@ -48,7 +48,7 @@ $.ajax({
 });
 // 페이지 로드 완료 후 상품상태 목록 불러오기
 $.ajax({
-	url: getContextPath() + "/category/productState",
+	url: "${pageContext.request.contextPath}/category/productState",
 	type: "POST",
 	cache: false,
 	success: function(data, status) {
@@ -120,9 +120,9 @@ $("#state_Box").click(function() {
 // 카테고리 대분류 선택시
 $(document).on("click", "#depth1_Category ul li", function() {
 	categoryValidity = false;
-	$("#depth1_checkIMG").attr("src", getContextPath() + "/resources/img/join/after_all.png");
-	$("#depth2_checkIMG").attr("src", getContextPath() + "/resources/img/join/before_all.png");
-	$("#category_inputOkIMG").attr("src", getContextPath() + "/resources/img/join/before_all.png");
+	$("#depth1_checkIMG").attr("src", "${pageContext.request.contextPath}/resources/img/join/after_all.png");
+	$("#depth2_checkIMG").attr("src", "${pageContext.request.contextPath}/resources/img/join/before_all.png");
+	$("#category_inputOkIMG").attr("src", "${pageContext.request.contextPath}/resources/img/join/before_all.png");
 	$("#depth1_Category").css("display", "none");
 	$("#depth2_Box").css("display", "inline-block");
 	$("#depth3_Box").css("display", "none");
@@ -131,7 +131,7 @@ $(document).on("click", "#depth1_Category ul li", function() {
 	$("#depth1_Select").html($(this).html());
 // 선택한 대분류의 하위 카테고리 가져오기
 	$.ajax({
-		url: getContextPath() + "/category/depth2",
+		url: "${pageContext.request.contextPath}/category/depth2",
 		type: "POST",
 		cache: false,
 		data: {
@@ -154,16 +154,16 @@ $(document).on("click", "#depth1_Category ul li", function() {
 // 카테고리 중분류 선택시
 $(document).on("click", "#depth2_Category ul li", function() {
 	categoryValidity = false;
-	$("#depth2_checkIMG").attr("src", getContextPath() + "/resources/img/join/after_all.png");
-	$("#depth3_checkIMG").attr("src", getContextPath() + "/resources/img/join/before_all.png");
-	$("#category_inputOkIMG").attr("src", getContextPath() + "/resources/img/join/before_all.png");
+	$("#depth2_checkIMG").attr("src", "${pageContext.request.contextPath}/resources/img/join/after_all.png");
+	$("#depth3_checkIMG").attr("src", "${pageContext.request.contextPath}/resources/img/join/before_all.png");
+	$("#category_inputOkIMG").attr("src", "${pageContext.request.contextPath}/resources/img/join/before_all.png");
 	$("#depth2_Category").css("display", "none");
 	$("#depth3_Box").css("display", "inline-block");
 	$("#depth2_Select").html($(this).html());
 	$("#depth3_Select").html("선택");
 	// 선택한 중분류의 하위 카테고리 가져오기
 	$.ajax({
-		url: getContextPath() + "/category/depth3",
+		url: "${pageContext.request.contextPath}/category/depth3",
 		type: "POST",
 		cache: false,
 		data: {
@@ -186,9 +186,9 @@ $(document).on("click", "#depth2_Category ul li", function() {
 // 카테고리 소분류 선택시
 $(document).on("click", "#depth3_Category ul li", function() {
 	categoryValidity = true;
-	$("#depth3_checkIMG").attr("src", getContextPath() + "/resources/img/join/after_all.png");
-	$("#depth3_checkIMG").attr("src", getContextPath() + "/resources/img/join/after_all.png");
-	$("#category_inputOkIMG").attr("src", getContextPath() + "/resources/img/join/after_all.png");
+	$("#depth3_checkIMG").attr("src", "${pageContext.request.contextPath}/resources/img/join/after_all.png");
+	$("#depth3_checkIMG").attr("src", "${pageContext.request.contextPath}/resources/img/join/after_all.png");
+	$("#category_inputOkIMG").attr("src", "${pageContext.request.contextPath}/resources/img/join/after_all.png");
 	$("#depth3_Category").css("display", "none");
 	$("#depth3_Select").html($(this).html());
 	$("#selectCategoryId").val($(this).val());
@@ -197,19 +197,19 @@ $(document).on("click", "#depth3_Category ul li", function() {
 $(document).on("click", "#way_Category ul li", function() {
 	wayValidity = true;
 	$("#way_Category").css("display", "none");
-	$("#way_checkIMG").attr("src", getContextPath() + "/resources/img/join/after_all.png");
-	$("#way_inputOkIMG").attr("src", getContextPath() + "/resources/img/join/after_all.png");
+	$("#way_checkIMG").attr("src", "${pageContext.request.contextPath}/resources/img/join/after_all.png");
+	$("#way_inputOkIMG").attr("src", "${pageContext.request.contextPath}/resources/img/join/after_all.png");
 	$("#way_Select").html($(this).html());
 	if($(this).val() == 1) {
 		wayValidity = false;
 		$("#way_Box2").css("display", "inline-block");
-		$("#way_inputOkIMG").attr("src", getContextPath() + "/resources/img/join/before_all.png");
+		$("#way_inputOkIMG").attr("src","${pageContext.request.contextPath}/resources/img/join/before_all.png");
 		$("#selectWayId").val($(this).val());
 	} else {
 		wayValidity = true;
 		$("#way_Box2").css("display", "none");
 		$("#productAddr").val("");
-		$("#way_inputOkIMG").attr("src", getContextPath() + "/resources/img/join/after_all.png");
+		$("#way_inputOkIMG").attr("src", "${pageContext.request.contextPath}/resources/img/join/after_all.png");
 		$("#selectWayId").val($(this).val());
 		$("#productAddr").val("");
 	}
@@ -219,8 +219,8 @@ $("#testimg1").val("${pageContext.request.contextPath}/resources/upload/xboxone.
 $(document).on("click", "#state_Category ul li", function() {
 	stateValidity = true;
 	$("#state_Category").css("display", "none");
-	$("#state_checkIMG").attr("src", getContextPath() + "/resources/img/join/after_all.png");
-	$("#state_inputOkIMG").attr("src", getContextPath() + "/resources/img/join/after_all.png");
+	$("#state_checkIMG").attr("src", "${pageContext.request.contextPath}/resources/img/join/after_all.png");
+	$("#state_inputOkIMG").attr("src", "${pageContext.request.contextPath}/resources/img/join/after_all.png");
 	$("#state_Select").html($(this).html());
 	$("#selectStateId").val($(this).val());
 });
@@ -256,7 +256,7 @@ $(document).on("click", "#state_Category ul li", function() {
 	}
 	if(categoryValidity && wayValidity && stateValidity && titleValidity && contentValidity && priceValidity && stockValidity && fileList.length != 0 && mainThumbnailValidity) {
 		$.ajax({
-			url: getContextPath() + "/product/update",
+			url: "${pageContext.request.contextPath}/product/update",
 			type: "POST",
 			cache: false,
 			data: {
@@ -341,19 +341,19 @@ $("#tbpImgCheckBtn").click(function() {
 		for(var i=0; i<fileList.length; i++) {
 			if(i==0) {
 				html += "<div id='imgBoxInner" + i + "' class='imgBoxInner on'>";
-				html += "<img style='width: 100%; height: 100%;' src='" + getContextPath() + "/resources/upload/" + fileList[i].name + "'/>"
+				html += "<img style='width: 100%; height: 100%;' src='${pageContext.request.contextPath}/resources/upload/" + fileList[i].name + "'/>"
 				html += "</div>";
 				if(fileList.length == 1) {					
 					mainThumbnail = imgList[1];
 					mainThumbnailValidity = true;
-					html += "<div id='mainImgSelectBtn" + i + "' class='mainImgSelectBtn on'><img src='" + getContextPath() + "/resources/img/join/mainThumb_check.png'/></div>";
+					html += "<div id='mainImgSelectBtn" + i + "' class='mainImgSelectBtn on'><img src='${pageContext.request.contextPath}/resources/img/join/mainThumb_check.png'/></div>";
 				} else {
 					html += "<div id='mainImgSelectBtn" + i + "' class='mainImgSelectBtn on'>메인 이미지로 선택<input type='hidden' id='imgNumber" + i + "' value='" + fileList[i].name + "'/></div>";
 					mainThumbnailValidity = false;
 				}
 			} else {
 				html += "<div id='imgBoxInner" + i + "' class='imgBoxInner'>";
-				html += "<img style='width: 100%; height: 100%;' src='" + getContextPath() + "/resources/upload/" + fileList[i].name + "'/>"
+				html += "<img style='width: 100%; height: 100%;' src='${pageContext.request.contextPath}/resources/upload/" + fileList[i].name + "'/>"
 				html += "</div>";
 				html += "<div id='mainImgSelectBtn" + i + "' class='mainImgSelectBtn'>메인 이미지로 선택<input type='hidden' id='imgNumber" + i + "' value='" + fileList[i].name + "'/></div>";
 			}
@@ -364,7 +364,7 @@ $("#tbpImgCheckBtn").click(function() {
 			html += "<div class='prevBtn'>PREV</div>";
 			html += "<div class='nextBtn'>NEXT</div>";
 		}
-		$("#imgUpload_allCheck").attr("src", getContextPath() + "/resources/img/join/after_all.png");
+		$("#imgUpload_allCheck").attr("src", "${pageContext.request.contextPath}/resources/img/join/after_all.png");
 		$(".imgBox").html(html);
 		$("#imgUploadPanel").css("display", "none");
 		$(".prevBtn").css("display", "block");
@@ -381,7 +381,7 @@ $("#tbpImgCancleBtn").click(function() {
 		$(".prevBtn").css("display", "none");
 		$(".nextBtn").css("display", "none");
 		$(".imgBox").html("<div class='imgBoxInner on'>이미지가 없습니다.</div>");
-		$("#imgUpload_allCheck").attr("src", getContextPath() + "/resources/img/join/before_all.png");
+		$("#imgUpload_allCheck").attr("src", "${pageContext.request.contextPath}/resources/img/join/before_all.png");
 		imgCount = 0;
 		mainThumbnailValidity = false;
 	} else {
@@ -390,19 +390,19 @@ $("#tbpImgCancleBtn").click(function() {
 			for(var i=0; i<fileList.length; i++) {
 				if(i==0) {
 					html += "<div id='imgBoxInner" + i + "' class='imgBoxInner on'>";
-					html += "<img style='width: 100%; height: 100%;' src='" + getContextPath() + "/resources/upload/" + fileList[i].name + "'/>"
+					html += "<img style='width: 100%; height: 100%;' src='${pageContext.request.contextPath}/resources/upload/" + fileList[i].name + "'/>"
 					html += "</div>";
 					if(fileList.length == 1) {					
 						mainThumbnail = imgList[1];
 						mainThumbnailValidity = true;
-						html += "<div id='mainImgSelectBtn" + i + "' class='mainImgSelectBtn on'><img src='" + getContextPath() + "/resources/img/join/mainThumb_check.png'/></div>";
+						html += "<div id='mainImgSelectBtn" + i + "' class='mainImgSelectBtn on'><img src='${pageContext.request.contextPath}/resources/img/join/mainThumb_check.png'/></div>";
 					} else {
 						html += "<div id='mainImgSelectBtn" + i + "' class='mainImgSelectBtn on'>메인 이미지로 선택<input type='hidden' id='imgNumber" + i + "' value='" + fileList[i].name + "'/></div>";
 						mainThumbnailValidity = false;
 					}
 				} else {
 					html += "<div id='imgBoxInner" + i + "' class='imgBoxInner'>";
-					html += "<img style='width: 100%; height: 100%;' src='" + getContextPath() + "/resources/upload/" + fileList[i].name + "'/>"
+					html += "<img style='width: 100%; height: 100%;' src='${pageContext.request.contextPath}/resources/upload/" + fileList[i].name + "'/>"
 					html += "</div>";
 					html += "<div id='mainImgSelectBtn" + i + "' class='mainImgSelectBtn'>메인 이미지로 선택<input type='hidden' id='imgNumber" + i + "' value='" + fileList[i].name + "'/></div>";
 				}
@@ -413,7 +413,7 @@ $("#tbpImgCancleBtn").click(function() {
 				html += "<div class='prevBtn'>PREV</div>";
 				html += "<div class='nextBtn'>NEXT</div>";
 			}
-			$("#imgUpload_allCheck").attr("src", getContextPath() + "/resources/img/join/after_all.png");
+			$("#imgUpload_allCheck").attr("src", "${pageContext.request.contextPath}/resources/img/join/after_all.png");
 			$(".imgBox").html(html);
 			$("#imgUploadPanel").css("display", "none");
 			$(".prevBtn").css("display", "block");
@@ -462,7 +462,7 @@ $(document).on("click", ".mainImgSelectBtn", function() {
 			mainThumbnailValidity = true;
 		}
 	}
-	$("#imgNumber" + imgCount).parent("#mainImgSelectBtn" + imgCount).html("<img src='" + getContextPath() + "/resources/img/join/mainThumb_check.png'/>");
+	$("#imgNumber" + imgCount).parent("#mainImgSelectBtn" + imgCount).html("<img src='${pageContext.request.contextPath}/resources/img/join/mainThumb_check.png'/>");
 });
 // Drag 방식 이미지 업로드
 function fileDropDown() {
@@ -560,7 +560,7 @@ function selectFile(fileObject) {
 		}
 		
 		$.ajax({
-			url: getContextPath() + "/upload/img",
+			url: "${pageContext.request.contextPath}/upload/img",
 			type: "POST",
 			data: formData,
 			processData: false,
@@ -582,7 +582,7 @@ function addImgPreview(fileList) {
 	for(var i=0; i<fileList.length; i++) {
 		html += "<div id=" + i + ">";
 		html += "<div class='delete' onclick='deleteImg(" + i + ")'>X</div>"
-		html += "<img class='previewImg' src='" + getContextPath() + "/resources/upload/" + fileList[i].name + "'/>";
+		html += "<img class='previewImg' src='${pageContext.request.contextPath}/resources/upload/" + fileList[i].name + "'/>";
 		html += "</div>";
 		$("#imgUploadInnerTop").html(html);
 	}
@@ -603,7 +603,7 @@ function deleteImg(i) {
 		}
 
 		$.ajax({
-			url: getContextPath() + "/upload/img",
+			url: "${pageContext.request.contextPath}/upload/img",
 			type: "POST",
 			data: formData,
 			processData: false,
@@ -628,7 +628,7 @@ function checkTitleLimit() {
 		titleValidity = false;
 		$("#checkTitle").css("display", "block");
 		$("#checkTitle").html("제목은 30자 이내로 입력해주세요.");
-		$("#title_inputOkIMG").attr("src", getContextPath() + "/resources/img/join/before_all.png");
+		$("#title_inputOkIMG").attr("src", "${pageContext.request.contextPath}/resources/img/join/before_all.png");
 	}
 }
 function checkTitleOk() {
@@ -638,13 +638,13 @@ function checkTitleOk() {
  	if(titleValue.length >= 10 && titleValue.length <= 30) {
 		titleValidity = true;
 		$("#checkTitle").css("display", "none");
-		$("#title_inputOkIMG").attr("src", getContextPath() + "/resources/img/join/after_all.png");
+		$("#title_inputOkIMG").attr("src", "${pageContext.request.contextPath}/resources/img/join/after_all.png");
 	} else {
 		if(titleValue.length < 10) {
 			titleValidity = false;
 			$("#checkTitle").css("display", "block");
 			$("#checkTitle").html("제목은 10자 이상으로 입력해주세요.");
-			$("#title_inputOkIMG").attr("src", getContextPath() + "/resources/img/join/before_all.png");
+			$("#title_inputOkIMG").attr("src", "${pageContext.request.contextPath}/resources/img/join/before_all.png");
 		}
 	}
 }
@@ -655,12 +655,12 @@ function checkContent() {
 	if(contentValue.length >= 10) {
 		contentValidity = true;
 		$("#checkTitle").css("display", "none");
-		$("#content_inputOkIMG").attr("src", getContextPath() + "/resources/img/join/after_all.png");
+		$("#content_inputOkIMG").attr("src", "${pageContext.request.contextPath}/resources/img/join/after_all.png");
 	} else {
 		contentValidity = false;
 		$("#checkTitle").css("display", "block");
 		$("#checkTitle").html("설명은 10자 이상으로 입력해주세요.");
-		$("#content_inputOkIMG").attr("src", getContextPath() + "/resources/img/join/before_all.png");	
+		$("#content_inputOkIMG").attr("src", "${pageContext.request.contextPath}/resources/img/join/before_all.png");	
 	}
 }
 // 가격 입력시
@@ -673,18 +673,18 @@ function checkPriceLimit() {
 		if(new RegExp(price_Pattern).test(priceValue)) {
 			priceValidity = true;
 			$("#checkPrice").css("display", "none");
-			$("#price_inputOkIMG").attr("src", getContextPath() + "/resources/img/join/after_all.png");
+			$("#price_inputOkIMG").attr("src", "${pageContext.request.contextPath}/resources/img/join/after_all.png");
 		} else {
 			priceValidity = false;
 			$("#checkPrice").css("display", "block");
 			$("#checkPrice").html("가격은 정수만 입력 가능합니다.");
 			$("#priceInput").val("");
-			$("#price_inputOkIMG").attr("src", getContextPath() + "/resources/img/join/before_all.png");
+			$("#price_inputOkIMG").attr("src", "${pageContext.request.contextPath}/resources/img/join/before_all.png");
 			return false;
 		}
 	} else {
 		priceValidity = false;
-		$("#price_inputOkIMG").attr("src", getContextPath() + "/resources/img/join/before_all.png");
+		$("#price_inputOkIMG").attr("src", "${pageContext.request.contextPath}/resources/img/join/before_all.png");
 	}
 }
 // 수량 입력시
@@ -697,27 +697,27 @@ function checkStockLimit() {
 		if(new RegExp(stock_Pattern).test(stockValue)) {
 			stockValidity = true;
 			$("#checkStock").css("display", "none");
-			$("#stock_inputOkIMG").attr("src", getContextPath() + "/resources/img/join/after_all.png");
+			$("#stock_inputOkIMG").attr("src", "${pageContext.request.contextPath}/resources/img/join/after_all.png");
 		} else {
 			stockValidity = false;
 			$("#checkStock").css("display", "block");
 			$("#checkStock").html("수량은 정수만 입력 가능합니다.");
 			$("#stockInput").val("");
-			$("#stock_inputOkIMG").attr("src", getContextPath() + "/resources/img/join/before_all.png");
+			$("#stock_inputOkIMG").attr("src", "${pageContext.request.contextPath}/resources/img/join/before_all.png");
 			return false;
 		}
 	} else {
 		stockValidity = false;
-		$("#stock_inputOkIMG").attr("src", getContextPath() + "/resources/img/join/before_all.png");
+		$("#stock_inputOkIMG").attr("src", "${pageContext.request.contextPath}/resources/img/join/before_all.png");
 	}
 }
 // 주소입력 API
 function goPopup() {
-	var pop = window.open(getContextPath() + "/myPage/salesManagement/jusoPopup","pop","width=570,height=420, scrollbars=yes, resizable=yes"); 
+	var pop = window.open("${pageContext.request.contextPath}/myPage/salesManagement/jusoPopup","pop","width=570,height=420, scrollbars=yes, resizable=yes"); 
 }
 function jusoCallBack(roadFullAddr) {
 	$("#productAddr").val(roadFullAddr);
-	$("#way_inputOkIMG").attr("src", getContextPath() + "/resources/img/join/after_all.png");
+	$("#way_inputOkIMG").attr("src", "${pageContext.request.contextPath}/resources/img/join/after_all.png");
 	
 	if($("#productAddr").val() != "" || $("#productAddr").val() != null) {
 		wayValidity = true;
@@ -728,24 +728,18 @@ function jusoCallBack(roadFullAddr) {
 // 입력 정보에 대한 모든 유효성 체크
 function checkProductInputAll() {
 	if(categoryValidity && wayValidity && stateValidity && titleValidity && contentValidity && priceValidity && stockValidity) {
-		$("#productInput_allCheck").attr("src", getContextPath() + "/resources/img/join/after_all.png");
+		$("#productInput_allCheck").attr("src", "${pageContext.request.contextPath}/resources/img/join/after_all.png");
 	} else {
-		$("#productInput_allCheck").attr("src", getContextPath() + "/resources/img/join/before_all.png");
+		$("#productInput_allCheck").attr("src", "${pageContext.request.contextPath}/resources/img/join/before_all.png");
 		return false;
 	}
-}
-//ContextPath
-function getContextPath() {
-	var set=location.href.indexOf(location.host)+location.host.length;
-	var Path=location.href.substring(set, location.href.indexOf("/", set+1));
-	return Path;
 }
 function updateSalesWay() {
 	var salesWayId = ${productDto.salesWayId};
 	wayValidity = true;
 	$("#way_Category").css("display", "none");
-	$("#way_checkIMG").attr("src", getContextPath() + "/resources/img/join/after_all.png");
-	$("#way_inputOkIMG").attr("src", getContextPath() + "/resources/img/join/after_all.png");
+	$("#way_checkIMG").attr("src", "${pageContext.request.contextPath}/resources/img/join/after_all.png");
+	$("#way_inputOkIMG").attr("src", "${pageContext.request.contextPath}/resources/img/join/after_all.png");
 	if(salesWayId == 1) {		
 		$("#way_Select").html("직접거래");
 	} else {
@@ -754,13 +748,13 @@ function updateSalesWay() {
 	if(salesWayId == 1) {
 		wayValidity = true;
 		$("#way_Box2").css("display", "inline-block");
-		$("#way_inputOkIMG").attr("src", getContextPath() + "/resources/img/join/after_all.png");
+		$("#way_inputOkIMG").attr("src", "${pageContext.request.contextPath}/resources/img/join/after_all.png");
 		$("#selectWayId").val(salesWayId);
 	} else {
 		wayValidity = true;
 		$("#way_Box2").css("display", "none");
 		$("#productAddr").val("");
-		$("#way_inputOkIMG").attr("src", getContextPath() + "/resources/img/join/after_all.png");
+		$("#way_inputOkIMG").attr("src", "${pageContext.request.contextPath}/resources/img/join/after_all.png");
 		$("#selectWayId").val(salesWayId);
 		$("#productAddr").val("");
 	}
@@ -769,8 +763,8 @@ function updateState() {
 	var stateId = ${productDto.productStateId};
 	stateValidity = true;
 	$("#state_Category").css("display", "none");
-	$("#state_checkIMG").attr("src", getContextPath() + "/resources/img/join/after_all.png");
-	$("#state_inputOkIMG").attr("src", getContextPath() + "/resources/img/join/after_all.png");
+	$("#state_checkIMG").attr("src", "${pageContext.request.contextPath}/resources/img/join/after_all.png");
+	$("#state_inputOkIMG").attr("src", "${pageContext.request.contextPath}/resources/img/join/after_all.png");
 	if(stateId == 1) {
 		$("#state_Select").html("미개봉 새제품");		
 	} else if(stateId == 2) {
@@ -810,10 +804,10 @@ function updateCategory() {
 	});
 	$("#depth2_Box").css("display", "inline-block");
 	$("#depth3_Box").css("display", "inline-block");
-	$("#depth1_checkIMG").attr("src", getContextPath() + "/resources/img/join/after_all.png");
-	$("#depth2_checkIMG").attr("src", getContextPath() + "/resources/img/join/after_all.png");
-	$("#depth3_checkIMG").attr("src", getContextPath() + "/resources/img/join/after_all.png");
-	$("#category_inputOkIMG").attr("src", getContextPath() + "/resources/img/join/after_all.png");
+	$("#depth1_checkIMG").attr("src", "${pageContext.request.contextPath}/resources/img/join/after_all.png");
+	$("#depth2_checkIMG").attr("src", "${pageContext.request.contextPath}/resources/img/join/after_all.png");
+	$("#depth3_checkIMG").attr("src", "${pageContext.request.contextPath}/resources/img/join/after_all.png");
+	$("#category_inputOkIMG").attr("src", "${pageContext.request.contextPath}/resources/img/join/after_all.png");
 	$("#selectCategoryId").val(categoryId);
 }
 </script>
