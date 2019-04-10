@@ -689,4 +689,5 @@ SELECT * FROM NLS_DATABASE_PARAMETERS;
 SELECT TO_DATE(SYSDATE) FROM dual;
 =======
 INSERT INTO productState VALUES (5, '중고(하자심함)');
->>>>>>> branch 'master' of https://github.com/KimJongHyeok2/tbpplace.git
+
+SELECT * FROM product;
