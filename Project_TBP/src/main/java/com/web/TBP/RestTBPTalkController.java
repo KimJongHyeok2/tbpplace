@@ -30,7 +30,6 @@ public class RestTBPTalkController {
 					dao.insertTalkList(dto);
 					dao.insertTalkContent1(dto);
 					dao.updateTalkDate(dto.getTbptalkNo());
-					System.out.println(dto.getTbptalkNo());
 				}
 			});
 		} else {

@@ -11,9 +11,8 @@ import com.web.TBP.command.MemberInfoFindCommand;
 @RequestMapping("/main")
 public class MainController {
 	
-	// 메인 페이지
 	@RequestMapping(value = "/index")
-	public String home(Model model) {
+	public String home2(Model model) {
 		
 		new CategoryPopularListCommand().execute(model);
 		
