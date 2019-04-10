@@ -5,7 +5,11 @@
   <li>모든 회원은 상품을 구매하거나 장바구니에 담을 수 있으며 자신을 물건을 판매등록 및 관리(수정/삭제)할 수 있습니다.</li>
   <li>Spring Security를 이용하여 관리자 페이지 구현, https를 적용하였습니다.</li>
 </ul>
-<h3>동영상</h3>
+<h3>개발기간</h3>
+<ul>
+  <li>2019-02-15 ~ 2019-03-30</li>
+</ul>
+<h3>동영상(Youtube)</h3>
 <a href="https://youtu.be/UjU3OFYs99k">바로가기</a>
 <h3>페이지 흐름도</h3>
 <img src="https://user-images.githubusercontent.com/47962660/55906796-0c790280-5c10-11e9-96da-f2014daf801a.PNG"/>
