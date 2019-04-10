@@ -9,6 +9,14 @@
 <ul>
   <li>2019-02-15 ~ 2019-03-30</li>
 </ul>
+<h3>사용기술</h3>
+<ul>
+  <li>Tool : Eclipse / Apache Tomcat v8.5</li>
+  <li>DataBase : Oracle 11g Express Edition</li>
+  <li>Language : Java, JSP 2.3, Servlet 3.1, JSTL, EL, JavaScript</li>
+  <li>Framework / Lib : Spring 4.3.22, MyBatis, JQuery</li>
+  <li>API : 도로명주소 찾기</li>
+</ul>
 <h3>동영상(Youtube)</h3>
 <a href="https://youtu.be/UjU3OFYs99k">바로가기</a>
 <h3>페이지 흐름도</h3>
