@@ -8,4 +8,3 @@
 <h3>동영상</h3>
 <a href="https://youtu.be/UjU3OFYs99k">바로가기</a>
 <h3>데이터베이스(ERD)</h3>
-![DataBase](https://jonghyeok.ml/resources/img/portfolio/db.PNG)
