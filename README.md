@@ -18,7 +18,7 @@
   <li>API : 도로명주소 찾기</li>
 </ul>
 <h3>동영상(Youtube)</h3>
-<a href="https://youtu.be/UjU3OFYs99k">바로가기</a>
+<a href="https://youtu.be/yQll97GxjKA">바로가기</a>
 <h3>페이지 흐름도</h3>
 <img src="https://user-images.githubusercontent.com/47962660/55906796-0c790280-5c10-11e9-96da-f2014daf801a.PNG"/>
 <h3>데이터베이스(ERD)</h3>
