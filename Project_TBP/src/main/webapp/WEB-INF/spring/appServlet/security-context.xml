@@ -7,7 +7,7 @@
 		
 	<security:http auto-config="true" use-expressions="true">
 		<security:intercept-url pattern="/admin/tbpManagement*" access="hasRole('ROLE_ADMIN')"/>
-		<security:intercept-url pattern="/" requires-channel="https" access="permitAll"/>
+		<!-- <security:intercept-url pattern="/" requires-channel="https" access="permitAll"/> -->
 		<security:form-login login-page="/admin/loginForm"
 		login-processing-url="/auth"
 		username-parameter="j_username"
