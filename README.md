@@ -1,4 +1,4 @@
-# TBP PLACE(개인 프로젝트)<br>
+# TBP PLACE(개인 )<br>
 <h3>동영상(Youtube) / Demo</h3>
 <a href="https://youtu.be/yQll97GxjKA">동영상 바로가기</a><br>
 <a href="http://34.85.117.116/TBP/main/index">Demo 바로가기</a>
