@@ -13,7 +13,7 @@
   <li>MyBatis</li>
   <li>Oracle 11g Express Edition</li>
 </ul>
-<h3>사용기술</h3>
+<h3>사용기술 / API</h3>
 <ul>
   <li>도로명 주소 찾기 API</li>
   <li>CKEditor 4</li>
