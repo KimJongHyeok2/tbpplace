@@ -13,6 +13,11 @@
   <li>MyBatis</li>
   <li>Oracle 11g Express Edition</li>
 </ul>
+<h3>사용기술</h3>
+<ul>
+  <li>도로명 주소 찾기 API</li>
+  <li>CKEditor 4</li>
+</ul>
 <h3>동영상(Youtube) / Demo</h3>
 <a href="https://youtu.be/yQll97GxjKA">동영상 바로가기</a><br>
 <a href="https://iamiportfolio.com/TBP/main/index">Demo 바로가기</a>
